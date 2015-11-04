@@ -4,7 +4,7 @@
 }
 body {
     font-family: impact, sans-serif;
-    background-color: black;
+    background-color: darkred;
     height: 100vh;
     width: 100vw;
     text-align: center;
@@ -21,10 +21,10 @@ div {
     margin-left: auto;
 }
 .red {
-    color: darkred;
+    color: black;
 }
 .player_1, .player_2 {
-    color: darkred;
+    color: black;
     width: 10%;
     height: 40%;
     vertical-align: top;
@@ -64,6 +64,11 @@ div {
 .box {
     width: 32%;
     height: 100%;
+}
+img {
+    width: 50%;
+    height: 70%;
+    padding-left: 5%;
 }
 .b2_row {
     width: 100%;
