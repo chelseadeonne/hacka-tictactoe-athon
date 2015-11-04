@@ -73,10 +73,46 @@ $(document).ready(function(){
 
     //increment
     $(row_1).find('.box').on('click', function(){
-        console.log('box one clicked');
+        console.log('row one clicked');
         isEven(turn);
         increment();
     });
+    $(row_2).find('.box').on('click', function(){
+        console.log('row two clicked');
+        isEven(turn);
+        increment();
+    });
+    $(row_3).find('.box').on('click', function(){
+        console.log('row three clicked');
+        isEven(turn);
+        increment();
+    });
+    /*$(b2row_1).find('.box').on('click', function(){
+        console.log('row four clicked');
+        isEven(turn);
+        increment();
+    });
+    $(b2row_2).find('.box').on('click', function(){
+        console.log('row four clicked');
+        isEven(turn);
+        increment();
+    });
+    $(b2row_3).find('.box').on('click', function(){
+        console.log('row four clicked');
+        isEven(turn);
+        increment();
+    });
+    $(b2row_4).find('.box').on('click', function(){
+        console.log('row four clicked');
+        isEven(turn);
+        increment();
+    });
+    $(b2row_5).find('.box').on('click', function(){
+        console.log('row five clicked');
+        isEven(turn);
+        increment();
+    });
+    */
    /* $(row_1).find('.two').on('click', function(){
         console.log('box two clicked');
         isEven(turn);
