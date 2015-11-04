@@ -53,9 +53,6 @@ $(document).ready(function(){
     $(row_1).append(box_1, box_2, box_3);
     $(row_2).append(box_4, box_5, box_6);
     $(row_3).append(box_7, box_8, box_9);
-
-    $(game_container).append(row_1, row_2, row_3);
-    $("body").append(title, player_1, game_container, player_2);
     $(b2_row1).append(b2_box1, b2_box2, b2_box3, b2_box4, b2_box5);
     $(b2_row2).append(b2_box6, b2_box7, b2_box8, b2_box9, b2_box10);
     $(b2_row3).append(b2_box11, b2_box12, b2_box13, b2_box14, b2_box15);
@@ -73,11 +70,12 @@ $(document).ready(function(){
         $(board_options).hide();
         $("body").append(title, reset, player_1, game_container2, player_2);
     });
-    //increment
-    $('.box').on('click', function(){
-        increment();
-        isEven(turn);
 
+    //increment
+    $('.row1, .box').on('click', function(){
+        console.log('box one clicked');
+        isEven(turn);
+        increment();
     });
 });
 
@@ -85,8 +83,7 @@ $(document).ready(function(){
 
 
 //switch turns
-var player_1 = 0;
-var player_2 = 1;
+
 var turn = 0;
 function increment(){
     turn++;
@@ -95,14 +92,16 @@ function checkVictory(){
     //check arrays for win conditions
 }
 function isEven(turn) {
+    var x = $('<img>').attr('src', 'images/samurai_swords.png');
+    var y = $('<img>').attr('src', 'images/meteor_hammer.png');
     if (turn % 2 === 0){
         //player 1 gets to go
-        $('img').attr('src') == 'images/samurai_swords.png';
+        $('.board_option1, .box1').append(x);
 
 
     }else{
         //player 2 gets to go
-        $('img').attr('src') == 'images/meteor_hammer.png';
+        $(this).append(y);
     }
 
 }
