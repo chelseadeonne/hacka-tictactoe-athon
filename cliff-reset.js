@@ -6,7 +6,7 @@ function resetGame(){
     newGame();
 }
 
-// increments game attempt counter, resets if clicked //
+// increases gameAttempt counter, resets if clicked //
 function incrementCounter(condition){
     if (condition == "reset"){
         gameAttempts = 1;
@@ -37,7 +37,6 @@ $(".btn-reset-user").click(function() {
 $(document).ready(function(){
     newGame();
     incrementCounter();
-
     $(document).(function(){
         if ($(this).hasClass("blank")){
             if (gameState == 0){
