@@ -38,7 +38,7 @@ div {
     margin-top: 30%;
     text-decoration: underline;
 }
-.game_container {
+.game_container1 {
     width: 75%;
     height: 90%;
     #margin-top: 5%;
@@ -46,6 +46,15 @@ div {
     border: none;
     background: url(images/bamboo.png) left top no-repeat, url(images/bamboo.png) center top no-repeat, url(images/bamboo.png) right top no-repeat, url(images/bamboo.png) left center no-repeat, url(images/bamboo.png) center no-repeat, url(images/bamboo.png) right center no-repeat, url(images/bamboo.png) left bottom no-repeat, url(images/bamboo.png) center bottom no-repeat, url(images/bamboo.png) right bottom no-repeat;
     background-size: 42% 43%;
+}
+.game_container2 {
+    width: 75%;
+    height: 90%;
+    #margin-top: 5%;
+    text-align: center;
+    border: none;
+    /*background: url(images/bamboo.png) left top no-repeat, url(images/bamboo.png) center top no-repeat, url(images/bamboo.png) right top no-repeat, url(images/bamboo.png) left center no-repeat, url(images/bamboo.png) center no-repeat, url(images/bamboo.png) right center no-repeat, url(images/bamboo.png) left bottom no-repeat, url(images/bamboo.png) center bottom no-repeat, url(images/bamboo.png) right bottom no-repeat;
+    background-size: 100%;*/
 }
 .row {
     width: 100%;
@@ -55,4 +64,47 @@ div {
 .box {
     width: 32%;
     height: 100%;
+}
+.b2_row {
+    width: 100%;
+    height: 15%;
+    border: none;
+}
+.b2_box {
+    width: 18%;
+    height: 100%;
+    border: 1px solid darkred;
+}
+.board_options {
+    width: 60vw;
+    height: 80vh;
+    margin: 8% 7% 0;
+}
+.board_option1, .board_option2 {
+    width: 50%;
+    height: 50%;
+}
+button {
+    font-size: 2em;
+    font-family: impact, sans-serif;
+    background-color: yellow;
+    width: 50%;
+    height: 50%;
+    border: none;
+}
+.reset {
+    width: 10%;
+    height: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.reset button {
+    font-size: 1em;
+}
+button:focus {
+    outline: none;
+}
+button:hover {
+    background-color: darkred;
 }
