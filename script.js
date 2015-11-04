@@ -14,6 +14,7 @@ var title = $("<div class='title'><h1>Tic <span class='red'>-</span> Tac <span c
     box_7 = $("<div class='box seven'></div>"),
     box_8 = $("<div class='box eight'></div>"),
     box_9 = $("<div class='box nine'></div>");
+
 $(document).ready(function(){
     $(row_1).append(box_1, box_2, box_3);
     $(row_2).append(box_4, box_5, box_6);
