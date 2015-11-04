@@ -20,4 +20,43 @@ $(document).ready(function(){
     $(row_3).append(box_7, box_8, box_9);
     $(game_container).append(row_1, row_2, row_3);
     $("body").append(title, player_1, game_container, player_2);
+    //increment
+    $()
+    /*
+     $('.keys, #numberInput').on('click', 'button', function () {
+     var num = null;
+
+     console.log('works');
+     console.log($(this).text());
+
+     num = $(this).text();
+     // addDot();
+     input_digit(num);
+     console.log(num_array[i]);
+     displayResults(num_array[i]);
+
+     });
+     */
 });
+
+//switch turns
+var player_1 = 0;
+var player_2 = 1;
+var turn = 0;
+function increment(){
+    turn++;
+}
+
+function isEven(turn) {
+    if (turn % 2 ==0){
+        //player 1 gets to go
+
+    }else{
+        //player 2 gets to go
+
+    }
+
+}
+
+
+
