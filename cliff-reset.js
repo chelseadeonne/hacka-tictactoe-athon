@@ -8,10 +8,11 @@ if (currentPlayer == X){
 // Remove Append //
 
 // $(row_2).append(box_4, box_5, box_6); //
-
+// This needs to target images though, if targets rows then it'll remove gameboard //
+// empty cleans out the container //
+$('.row_2').empty();
+// remove cleans out the whole thing including the container //
 $('.row_2').remove();
-
-
 
 // Simple Reset Gameboard - This one should work - Use this one//
 $('button').click(function () {
