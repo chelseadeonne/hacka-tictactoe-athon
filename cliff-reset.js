@@ -5,6 +5,43 @@ if (currentPlayer == X){
     currentPlayer = X;
 }
 
+function checkWinner(array, name){
+    // loop over the first array of winning combinations
+    for (i = 0; i < winningCombinations.length; i++) {
+        // reset the winCounter each time!
+        winCounter = 0;
+        // loop over each individual array
+        for (var j = 0; j < winningCombinations[i].length; j++) {
+            // if the number in winning combo array is === a number in moves array, add to winCounter
+            if(movesArray.indexOf(winningCombinations[i][j]) !== -1){
+                winCounter++;
+            }
+            // if winCounter === 3 that means all 3 moves are winning combos and game is over!
+            if(winCounter === 3){
+                alert("Game over, " + name + " wins!");
+                resetBoard();
+            }
+        }
+    }
+}
+
+function resetBoard(){
+    for (var i = boxes.length - 1; i >= 0; i--) {
+        boxes[i].innerHTML="";
+        boxes[i].setAttribute("class","clear");
+    }
+    OMoves = [];
+    XMoves = [];
+    winCounter=0;
+    counter = 1;
+    turnText.innerHTML = "It is X's turn";
+}
+
+
+
+
+
+
 
 // Remove Append //
 
