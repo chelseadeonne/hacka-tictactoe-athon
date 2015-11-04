@@ -21,22 +21,12 @@ $(document).ready(function(){
     $(game_container).append(row_1, row_2, row_3);
     $("body").append(title, player_1, game_container, player_2);
     //increment
-    $()
-    /*
-     $('.keys, #numberInput').on('click', 'button', function () {
-     var num = null;
+    $('.box').on('click', function(){
+        increment();
+        isEven(turn);
 
-     console.log('works');
-     console.log($(this).text());
+    });
 
-     num = $(this).text();
-     // addDot();
-     input_digit(num);
-     console.log(num_array[i]);
-     displayResults(num_array[i]);
-
-     });
-     */
 });
 
 //switch turns
@@ -46,14 +36,18 @@ var turn = 0;
 function increment(){
     turn++;
 }
-
+function checkVictory(){
+    //check arrays for win conditions
+}
 function isEven(turn) {
-    if (turn % 2 ==0){
+    if (turn % 2 === 0){
         //player 1 gets to go
+        $('img').attr('src') == 'images/samurai_swords.png';
+
 
     }else{
         //player 2 gets to go
-
+        $('img').attr('src') == 'images/meteor_hammer.png';
     }
 
 }
