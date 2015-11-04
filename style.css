@@ -1,0 +1,58 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: impact, sans-serif;
+    background-color: black;
+    height: 100vh;
+    width: 100vw;
+    text-align: center;
+}
+div {
+    display: inline-block;
+}
+.title {
+    height: 10%;
+    width: 80%;
+    color: yellow;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+.red {
+    color: darkred;
+}
+.player_1, .player_2 {
+    color: darkred;
+    width: 10%;
+    height: 40%;
+    vertical-align: top;
+    background-image: url(images/player.png);
+    background-repeat: no-repeat;
+    background-size: 120%;
+    background-position: center top;
+
+}
+.player_1 h3, .player_2 h3{
+    margin-top: 30%;
+    text-decoration: underline;
+}
+.game_container {
+    width: 75%;
+    height: 90%;
+    #margin-top: 5%;
+    text-align: center;
+    border: none;
+    background: url(images/bamboo.png) left top no-repeat, url(images/bamboo.png) center top no-repeat, url(images/bamboo.png) right top no-repeat, url(images/bamboo.png) left center no-repeat, url(images/bamboo.png) center no-repeat, url(images/bamboo.png) right center no-repeat, url(images/bamboo.png) left bottom no-repeat, url(images/bamboo.png) center bottom no-repeat, url(images/bamboo.png) right bottom no-repeat;
+    background-size: 42% 43%;
+}
+.row {
+    width: 100%;
+    height: 33%;
+    border: none;
+}
+.box {
+    width: 32%;
+    height: 100%;
+}
