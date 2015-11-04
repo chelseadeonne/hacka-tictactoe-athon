@@ -1,9 +1,9 @@
-//resets gridArray and gameState, clears playarea, and calls createGame //
+//resets Array and gameState, clears game_container, and starts newGame //
 function resetGame(){
-    gridArray = [[0,0,0],[0,0,0],[0,0,0]];
+    Array = [[0,0,0],[0,0,0],[0,0,0]];
     gameState = 0;
     $(".game_container").innerHTML = '';
-    createGame();
+    newGame();
 }
 
 // increments game attempt counter, resets if clicked //
@@ -32,3 +32,24 @@ $(".btn-reset-user").click(function() {
     incrementCounter();
     resetGame();
 });
+
+// Create game template //
+$(document).ready(function(){
+    newGame();
+    incrementCounter();
+
+    $(document).(function(){
+        if ($(this).hasClass("blank")){
+            if (gameState == 0){
+                this.classList.remove("blank");
+                this.classList.add("X");
+                $(this).children("img").attr('src',xImg);
+                Array[xIndex(this.id)][yIndex(this.id)] = "X";
+                gameOver();
+                if (gameState == 0) {
+                    computerTurn();
+                    gameOver();
+                }
+            }
+        }
+    });
