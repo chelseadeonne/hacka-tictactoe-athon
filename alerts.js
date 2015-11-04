@@ -15,3 +15,18 @@ if (!checkWin()) {
     crossPlaying = !crossPlaying;
 }
 
+// alert conditions //
+// replace 'win' with winning condition //
+
+    if (win(){
+        alert ("You win!");
+        return;
+    }
+    else  if(!win()) {
+        alert("You lose!");
+    }
+    else {
+        alert("Draw!")
+    }
+
+

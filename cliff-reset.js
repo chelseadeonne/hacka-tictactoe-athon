@@ -5,6 +5,7 @@ if (currentPlayer == X){
     currentPlayer = X;
 }
 
+
 // Remove Append //
 
 // $(row_2).append(box_4, box_5, box_6); //
