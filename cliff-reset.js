@@ -5,7 +5,15 @@ if (currentPlayer == X){
     currentPlayer = X;
 }
 
-// Simple Reset - This one should work - Use this one//
+// Remove Append //
+
+// $(row_2).append(box_4, box_5, box_6); //
+
+$('.row_2').remove();
+
+
+
+// Simple Reset Gameboard - This one should work - Use this one//
 $('button').click(function () {
     // Whatever 'newgame' is //
     $('div').toggleClass('newgame');
@@ -26,6 +34,13 @@ tictactoe.reset = function(){
     tictactoe.nextTurn = true;
     tictactoe.turnCount = 0;
 };
+
+// Reset exaample #2 - Initialize the game if needed //
+
+function initialize() {
+    resetGame();
+    $("btnNewGame").onclick = resetGame;
+}
 
 // Reset example #2 - clearing all the cells and player's pattern //
 function resetGame() {
