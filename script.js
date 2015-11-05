@@ -16,6 +16,7 @@ var size = 3;
 var swap = 0;
 //dynamic board creation for 3x3 and 5x5
 
+
     var player_1 = $("<div class='player_1'><h3>Player 1</h3></div>"),
     player_2 = $("<div class='player_2'><h3>Player 2</h3></div>"),
     game_container1 = $("<div class='game_container1'></div>"),
@@ -90,6 +91,9 @@ $(document).ready(function () {
         $(board_options).hide();
         $("body").append(title, reset, player_1, game_container2, player_2);
     });
+
+    // Image Append //
+
     $(document).on('click', '.box', function () {
         $(this).addClass('marked');
 
@@ -125,6 +129,9 @@ $(document).ready(function () {
         }
         increment();
     });
+
+
+    // Win condition creation //
 
     /*or 5*/
     grid.push(r1, r2, r3, c1, c2, c3, d1, d2);
@@ -355,8 +362,17 @@ $(document).ready(function () {
             return;
         }
         check();
+
+            });
+    // Reset //
+    $('.reset').click(function() {
+        $('.box').removeClass('.marked');
+        $('.b2_box').removeClass('.marked');
+        boardReset();
     });
+
 });
+
 //end document ready function
 
 
@@ -387,7 +403,27 @@ function increment(){
 
 
 
+// Resets board and images //
 
+function boardReset() {
+    for (var i = 0; i < grid.length; i++) {
+        grid[i] = [];
+        var images = document.getElementsByTagName('img');
+        while(images.length>0){
+            images[0].parentNode.removeChild(images[0]);
+        }
 
+        swap=0;
+        r1 = [];
+        r2 = [];
+        r3 = [];
 
+        c1 = [];
+        c2 = [];
+        c3 = [];
+
+        d1 = [];
+        d2 = [];
+    }
+}
 
