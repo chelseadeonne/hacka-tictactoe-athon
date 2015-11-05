@@ -16,7 +16,7 @@ var d1 = [];
 var d2 = [];
 
 var turn = 0;
-var size = 3;
+var size;
 var swap = 0;
 //dynamic board creation for 3x3 and 5x5
 
@@ -97,7 +97,7 @@ function boardReset() {
         c3 = [];
         c4 = [];
         c5 = [];
-        
+
         d1 = [];
         d2 = [];
     }
@@ -144,10 +144,12 @@ $(document).ready(function () {
     $(board_option1).on('click', function () {
         $(board_options).hide();
         $("body").append(title, reset, player_1, game_container1, player_2);
+        size = 3;
     });
     $(board_option2).on('click', function () {
         $(board_options).hide();
         $("body").append(title, reset, player_1, game_container2, player_2);
+        size = 5;
     });
 
 //=================Image Append 3x3 board==================//
@@ -184,6 +186,7 @@ $(document).ready(function () {
             var y = $('<img>').attr('src', 'images/meteor_hammer.png');
             $(this).append(y);
         }
+        increment();
     });
 
 //==================Win condition creation================//
