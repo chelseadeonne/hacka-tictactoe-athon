@@ -164,6 +164,10 @@ $(document).ready(function () {
         $("body").append(title, reboot, player_1, game_container1, player_2);
         $(".box").addClass("black_background");
         size = 3;
+        $(player_1).find('h1').remove();
+        $(player_2).find('h1').remove();
+        $(player_1).find('img').remove();
+        $(player_2).find('img').remove();
     });
 //============5x5 board Creation============//
     $(board_option2).on('click', function () {
@@ -173,6 +177,10 @@ $(document).ready(function () {
         $("body").append(title, reboot, player_1, game_container2, player_2);
         $(".b2_box").addClass("black_background");
         size = 5;
+        $(player_1).find('h1').remove();
+        $(player_2).find('h1').remove();
+        $(player_1).find('img').remove();
+        $(player_2).find('img').remove();
     });
 
 //=================Image Append 3x3 board==================//
