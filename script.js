@@ -116,7 +116,7 @@ Array.prototype.checkforwin = function () {
 };
 
 function check() {
-    for (i = 0; i < grid.length; i++) {
+    for (var i = 0; i < grid.length; i++) {
         if (grid[i].checkforwin() === true) {
             return console.log("yes");
         }
