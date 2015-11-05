@@ -64,10 +64,11 @@ div {
 .box {
     width: 32%;
     height: 100%;
+    border: 1px solid black;
 }
 img {
-    width: 50%;
-    height: 70%;
+    width: 40%;
+    height: 65%;
     padding-left: 5%;
 }
 .b2_row {
