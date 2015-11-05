@@ -184,11 +184,13 @@ $(document).ready(function () {
             //player 1 gets to go
             var x = $('<img>').attr('src', 'images/samurai_swords.png');
             //$(this).append(x);
+            sword.play();
             $(this).addClass("x").removeClass("black_background").addClass("yellow_background");
             $(this).attr('marked', 'true');
         } else {
             //player 2 gets to go
             var y = $('<img>').attr('src', 'images/meteor_hammer.png');
+            meteor_hammer.play();
             //$(this).append(y);
             $(this).addClass("o");
         }
