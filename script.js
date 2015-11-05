@@ -128,14 +128,14 @@ $(document).ready(function () {
             //player 1 gets to go
             //var x = $('<img>').attr('src', 'images/samurai_swords.png');
             //$(this).append(x);
-            $(this).addClass("x").removeClass("black_background").addClass("yellow_background");
+            $(this).addClass("x").addClass("marked").removeClass("black_background").addClass("yellow_background");
 
 
         } else {
             //player 2 gets to go
             //var y = $('<img>').attr('src', 'images/meteor_hammer.png');
             //$(this).append(y);
-            $(this).addClass("o");
+            $(this).addClass("o").addClass("marked");
         }
         increment();
     });
@@ -418,8 +418,8 @@ function increment(){
 function boardReset() {
     for (var i = 0; i < grid.length; i++) {
         grid[i] = [];
-        $(".box").removeClass("x").removeClass("o").removeClass("marked");
-        $(".b2_box").removeClass("x").removeClass("o").removeClass("marked");
+        $(".box").removeClass("x").removeClass("o").removeClass("marked").addClass("black_background").removeClass("yellow_background");
+        $(".b2_box").removeClass("x").removeClass("o").removeClass("marked").addClass("black_background").removeClass("yellow_background");
         $("body").find(game_container1).hide();
         $("body").find(game_container2).hide();
         $(board_options).show();
