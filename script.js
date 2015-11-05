@@ -1,5 +1,22 @@
-var title = $("<div class='title'><h1>Tic <span class='red'>-</span> Tac <span class='red'>-</span> <span class='red'>Tarantino</span></h1></div>"),
-    player_1 = $("<div class='player_1'><h3>Player 1</h3></div>"),
+var title = $("<div class='title'><h1>Tic <span class='red'>-</span> Tac <span class='red'>-</span> <span class='red'>Tarantino</span></h1></div>");
+var grid = [];
+var r1 = [];
+var r2 = [];
+var r3 = [];
+
+var c1 = [];
+var c2 = [];
+var c3 = [];
+
+var d1 = [];
+var d2 = [];
+
+var turn = 0;
+var size = 3;
+var swap = 0;
+//dynamic board creation for 3x3 and 5x5
+
+    var player_1 = $("<div class='player_1'><h3>Player 1</h3></div>"),
     player_2 = $("<div class='player_2'><h3>Player 2</h3></div>"),
     game_container1 = $("<div class='game_container1'></div>"),
     row_1 = $("<div class='row row_1'></div>"),
@@ -49,37 +66,10 @@ var title = $("<div class='title'><h1>Tic <span class='red'>-</span> Tac <span c
     board_option1 = $("<div class='board_option1'><button>3 Rows</button></div>"),
     board_option2 = $("<div class='board_option2'><button>5 Rows</button></div>"),
     reset = $("<div class='reset'><button>Reset</button></div>");
-$(document).ready(function(){
-    $(document).on('click','.box',function() {
-        console.log('hi');
-        if (turn % 2 === 0){
-            //player 1 gets to go
-            var x = $('<img>').attr('src', 'images/samurai_swords.png');
-            $(this).append(x);
 
+//document ready function start
+$(document).ready(function () {
 
-        }else{
-            //player 2 gets to go
-            var y = $('<img>').attr('src', 'images/meteor_hammer.png');
-            $(this).append(y);
-        }
-        increment();
-    });
-    $(document).on('click','.b2_box',function() {
-        console.log('hi');
-        if (turn % 2 === 0){
-            //player 1 gets to go
-            var x = $('<img>').attr('src', 'images/samurai_swords.png');
-            $(this).append(x);
-
-
-        }else{
-            //player 2 gets to go
-            var y = $('<img>').attr('src', 'images/meteor_hammer.png');
-            $(this).append(y);
-        }
-        increment();
-    });
     $(row_1).append(box_1, box_2, box_3);
     $(row_2).append(box_4, box_5, box_6);
     $(row_3).append(box_7, box_8, box_9);
@@ -92,27 +82,307 @@ $(document).ready(function(){
     $(game_container1).append(row_1, row_2, row_3);
     $(game_container2).append(b2_row1, b2_row2, b2_row3, b2_row4, b2_row5, reset);
     $("body").append(title, reset, player_1, board_options, player_2);
-    $(board_option1).on('click', function(){
+    $(board_option1).on('click', function () {
         $(board_options).hide();
         $("body").append(title, reset, player_1, game_container1, player_2);
     });
-    $(board_option2).on('click', function(){
+    $(board_option2).on('click', function () {
         $(board_options).hide();
         $("body").append(title, reset, player_1, game_container2, player_2);
     });
+    $(document).on('click', '.box', function () {
+        console.log('hi');
+        if (swap % 2 === 0) {
+            //player 1 gets to go
+            var x = $('<img>').attr('src', 'images/samurai_swords.png');
+            $(this).append(x);
 
+
+        } else {
+            //player 2 gets to go
+            var y = $('<img>').attr('src', 'images/meteor_hammer.png');
+            $(this).append(y);
+        }
+        increment();
+    });
+    $(document).on('click', '.b2_box', function () {
+        console.log('hi');
+        if (swap % 2 === 0) {
+            //player 1 gets to go
+            var x = $('<img>').attr('src', 'images/samurai_swords.png');
+            $(this).append(x);
+
+
+        } else {
+            //player 2 gets to go
+            var y = $('<img>').attr('src', 'images/meteor_hammer.png');
+            $(this).append(y);
+        }
+        increment();
+    });
+
+    /*or 5*/
+    grid.push(r1, r2, r3, c1, c2, c3, d1, d2);
+
+    $(box_1).on('click', function () {
+        if (r1[0] === undefined) {
+            if (turn % 2 === 0) {
+                r1[0] = "x";
+                c1[0] = 'x';
+                d1[0] = 'x';
+                console.log(r1, c1, d1);
+                turn++;
+            }
+            else if (turn % 2 !== 0) {
+                r1[0] = "o";
+                c1[0] = 'o';
+                d1[0] = 'o';
+                console.log(r1, c1, d1);
+                turn++;
+            }
+            else {
+                console.log("error");
+            }
+        }
+        else {
+            return;
+        }
+        check();
+    });
+
+    $(box_2).on('click', function () {
+        if (r1[1] === undefined) {
+            if (turn % 2 === 0) {
+                r1[1] = "x";
+                c2[0] = 'x';
+                console.log(r1, c2);
+                turn++;
+            }
+            else if (turn % 2 !== 0) {
+                r1[1] = "o";
+                c2[0] = 'o';
+                console.log(r1, c2);
+                turn++;
+            }
+            else {
+                console.log("error");
+            }
+        }
+        else {
+            return;
+        }
+        check();
+    });
+
+    $(box_3).on('click', function () {
+        if (r1[2] === undefined) {
+            if (turn % 2 === 0) {
+                r1[2] = "x";
+                c3[0] = 'x';
+                d2[0] = 'x';
+                console.log(r1, c3, d2);
+                turn++;
+            }
+            else if (turn % 2 !== 0) {
+                r1[2] = "o";
+                c3[0] = 'o';
+                d2[0] = 'o';
+                console.log(r1, c3, d2);
+                turn++;
+            }
+            else {
+                console.log("error");
+            }
+        }
+        else {
+            return;
+        }
+        check();
+    });
+
+    $(box_4).on('click', function () {
+        if (r2[0] === undefined) {
+            if (turn % 2 === 0) {
+                r2[0] = "x";
+                c1[1] = 'x';
+                console.log(r2, c1);
+                turn++;
+            }
+            else if (turn % 2 !== 0) {
+                r2[0] = "o";
+                c1[1] = 'o';
+                console.log(r2, c1);
+                turn++;
+            }
+            else {
+                console.log("error");
+            }
+        }
+        else {
+            return;
+        }
+        check();
+    });
+
+    $(box_5).on('click', function () {
+        if (r2[1] === undefined) {
+            if (turn % 2 === 0) {
+                r2[1] = "x";
+                c2[1] = 'x';
+                d1[1] = 'x';
+                d2[1] = 'x';
+                console.log(r2, c2, d1, d2);
+                turn++;
+            }
+            else if (turn % 2 !== 0) {
+                r2[1] = "o";
+                c2[1] = 'o';
+                d1[1] = 'o';
+                d2[1] = 'o';
+                console.log(r2, c2, d1, d2);
+                turn++;
+            }
+            else {
+                console.log("error");
+            }
+        }
+        else {
+            return;
+        }
+        check();
+    });
+
+    $(box_6).on('click', function () {
+        if (r2[2] === undefined) {
+            if (turn % 2 === 0) {
+                r2[2] = "x";
+                c3[1] = 'x';
+                console.log(r2, c3);
+                turn++;
+            }
+            else if (turn % 2 !== 0) {
+                r2[2] = "o";
+                c3[1] = 'o';
+                console.log(r2, c3);
+                turn++;
+            }
+            else {
+                console.log("error");
+            }
+        }
+        else {
+            return;
+        }
+        check();
+    });
+
+    $(box_7).on('click', function () {
+        if (r3[0] === undefined) {
+            if (turn % 2 === 0) {
+                r3[0] = "x";
+                c1[2] = 'x';
+                d2[2] = 'x';
+                console.log(r3, c1, d2);
+                turn++;
+            }
+            else if (turn % 2 !== 0) {
+                r3[0] = "o";
+                c1[2] = 'o';
+                d2[2] = 'o';
+                console.log(r3, c1, d2);
+                turn++;
+            }
+            else {
+                console.log("error");
+            }
+        }
+        else {
+            return;
+        }
+        check();
+    });
+
+    $(box_8).on('click', function () {
+        if (r3[1] === undefined) {
+            if (turn % 2 === 0) {
+                r3[1] = "x";
+                c2[2] = 'x';
+                console.log(r3, c2);
+                turn++;
+            }
+            else if (turn % 2 !== 0) {
+                r3[1] = "o";
+                c2[2] = 'o';
+                console.log(r3, c2);
+                turn++;
+            }
+            else {
+                console.log("error");
+            }
+        }
+        else {
+            return;
+        }
+        check();
+    });
+
+    $(box_9).on('click', function () {
+        if (r3[2] === undefined) {
+            if (turn % 2 === 0) {
+                r3[2] = "x";
+                c3[2] = 'x';
+                d1[2] = 'x';
+                console.log(r3, c3, d1);
+                turn++;
+            }
+            else if (turn % 2 !== 0) {
+                r3[2] = "o";
+                c3[2] = 'o';
+                d1[2] = 'o'
+                console.log(r3, c3, d1);
+                turn++;
+            }
+            else {
+                console.log("error");
+            }
+        }
+        else {
+            return;
+        }
+        check();
+    });
 });
 //end document ready function
 
 
+Array.prototype.checkforwin = function () {
+    for (var i = 0; i < this.length - 1; i++) {
+        if (this[i] !== undefined && this.length == size) {
+            if (this[i] != this[i + 1]) {
+                return false;
+            }
+            return true;
+        }
+    }
+};
 
-//switch turns
-
-var turn = 0;
+function check() {
+    for (i = 0; i < grid.length; i++) {
+        if (grid[i].checkforwin() === true) {
+            return console.log("yes");
+        }
+        else {
+// return console.log('no');
+        }
+    }
+}
 function increment(){
-    turn++;
+    swap++;
 }
 
-function checkVictory(){
-    //check arrays for win conditions
-}
+
+
+
+
+
+
