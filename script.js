@@ -952,7 +952,7 @@ $(b2_box25).on('click', function () {
         boardReset();
     });
 });
-
+//=====End Document Ready Function =======//
 
 
 
