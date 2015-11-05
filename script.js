@@ -392,7 +392,8 @@ function increment(){
     swap++;
 }
 
-// Resets //
+
+// Resets board and images //
 
 function boardReset() {
     for (var i = 0; i < grid.length; i++) {
@@ -402,7 +403,7 @@ function boardReset() {
             images[0].parentNode.removeChild(images[0]);
         }
 
-        swap=0;
+
         r1 = [];
         r2 = [];
         r3 = [];
@@ -415,4 +416,3 @@ function boardReset() {
         d2 = [];
     }
 }
-
