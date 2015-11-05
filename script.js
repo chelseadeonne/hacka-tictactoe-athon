@@ -1,13 +1,17 @@
 var title = $("<div class='title'><h1>Tic <span class='red'>-</span> Tac <span class='red'>-</span> <span class='red'>Tarantino</span></h1></div>");
 var grid = [];
+
 var r1 = [];
 var r2 = [];
 var r3 = [];
+var r4 = [];
+var r5 = [];
 
 var c1 = [];
 var c2 = [];
 var c3 = [];
-
+var c4 = [];
+var c5 = [];
 var d1 = [];
 var d2 = [];
 
@@ -85,11 +89,15 @@ function boardReset() {
         r1 = [];
         r2 = [];
         r3 = [];
+        r4 = [];
+        r5 = [];
 
         c1 = [];
         c2 = [];
         c3 = [];
-
+        c4 = [];
+        c5 = [];
+        
         d1 = [];
         d2 = [];
     }
