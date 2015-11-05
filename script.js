@@ -12,17 +12,20 @@ var c2 = [];
 var c3 = [];
 var c4 = [];
 var c5 = [];
+
 var d1 = [];
 var d2 = [];
 
 var turn = 0;
-var size = 3;
+
+var size;
 var swap = 0;
+
 //dynamic board creation for 3x3 and 5x5
     var win = $('<h1>');
     var lose = $('<img>').attr('src','images/Blood-Slash.png').addClass('tally');
-    var player_1 = $("<div class='player_1'><h3>Player 1</h3></div>"),
-    player_2 = $("<div class='player_2'><h3>Player 2</h3></div>"),
+    var player_1 = $("<div class='player_1'><h2>Kiddo</h2></div>"),
+    player_2 = $("<div class='player_2'><h2>O-Ren Ishii</h2></div>"),
     game_container1 = $("<div class='game_container1'></div>"),
     row_1 = $("<div class='row row_1'></div>"),
     box_1 = $("<div class='box one col1 dia1'></div>"),
@@ -70,38 +73,43 @@ var swap = 0;
     board_options = $("<div class='board_options'></div>"),
     board_option1 = $("<div class='board_option1'><button>3 Rows</button></div>"),
     board_option2 = $("<div class='board_option2'><button>5 Rows</button></div>"),
-    reset = $("<div class='reset'><button>Reset</button></div>");
+    reset = $("<div class='reset'><button>Reset</button></div>"),
+    kiddo = $("<div class='kiddo'><img src='images/kiddo.png'</div>");
 
 //==============increment to swap between players===============//
+
 function increment(){
     swap++;
 }
+
 //============== Resets board and images ============= //
 
 function boardReset() {
     for (var i = 0; i < grid.length; i++) {
         grid[i] = [];
-        var images = document.getElementsByTagName('img');
-        while(images.length>0){
-            images[0].parentNode.removeChild(images[0]);
-        }
         $('div').removeClass('marked');
         $(player_1).find('h1').remove();
         $(player_2).find('h1').remove();
-
-        swap=0;
+        $(".box").removeClass("x").removeClass("o").removeClass("marked").addClass("black_background").removeClass("yellow_background");
+        $(".b2_box").removeClass("x").removeClass("o").removeClass("marked").addClass("black_background").removeClass("yellow_background");
+        $("body").find(game_container1).hide();
+        $("body").find(game_container2).hide();
+        $(board_options).show();
+        $("body").append(title, reset, player_1, board_options, player_2);
+        /*var images = document.getElementsByTagName('img');
+         while(images.length>0){
+         images[0].parentNode.removeChild(images[0]);
+         }*/
+        swap = 0;
+        turn = 0;
         r1 = [];
         r2 = [];
         r3 = [];
-        r4 = [];
-        r5 = [];
 
         c1 = [];
         c2 = [];
         c3 = [];
-        c4 = [];
-        c5 = [];
-        
+
         d1 = [];
         d2 = [];
     }
@@ -109,7 +117,7 @@ function boardReset() {
 
 //===============win check conditional ===============//
 function check() {
-    for (i = 0; i < grid.length; i++) {
+    for (var i = 0; i < grid.length; i++) {
         if (grid[i].length == size) {
             var total = grid[i].reduce(function (a, b) {
                 return (a + b);
@@ -126,14 +134,14 @@ function check() {
         player_1.append(win.text('WINS'));
         player_2.append(lose);
     }
-    else {
-    }
     }
 
 //===============document ready function start==============//
+
 $(document).ready(function () {
 
 //=================dynamic board creation ============//
+
     $(row_1).append(box_1, box_2, box_3);
     $(row_2).append(box_4, box_5, box_6);
     $(row_3).append(box_7, box_8, box_9);
@@ -146,53 +154,62 @@ $(document).ready(function () {
     $(game_container1).append(row_1, row_2, row_3);
     $(game_container2).append(b2_row1, b2_row2, b2_row3, b2_row4, b2_row5, reset);
     $("body").append(title, reset, player_1, board_options, player_2);
+
+//=================3x3 Board Creation==================//
+
     $(board_option1).on('click', function () {
         grid.push(r1, r2, r3, c1, c2, c3, d1, d2);
-        size = 3;
         $(board_options).hide();
+        $(game_container1).show();
         $("body").append(title, reset, player_1, game_container1, player_2);
+        $(".box").addClass("black_background");
+        size = 3;
     });
+//============5x5 board Creation============//
     $(board_option2).on('click', function () {
         grid.push(r1,r2,r3,r4,r5,c1,c2,c3,c4,c5,d1,d2);
-        size = 5;
         $(board_options).hide();
+        $(game_container2).show();
         $("body").append(title, reset, player_1, game_container2, player_2);
+        $(".b2_box").addClass("black_background");
+        size = 5;
     });
-
 //=================Image Append 3x3 board==================//
-
     $(document).on('click', '.box', function () {
         $(this).addClass('marked');
-
             console.log('hi');
             if (swap % 2 === 0) {
                 //player 1 gets to go
                 var x = $('<img>').attr('src', 'images/samurai_swords.png');
-                $(this).append(x);
+                //$(this).append(x);
+                $(this).addClass("x").removeClass("black_background").addClass("yellow_background");
                 $(this).attr('marked', 'true');
-
             } else {
                 //player 2 gets to go
                 var y = $('<img>').attr('src', 'images/meteor_hammer.png');
-                $(this).append(y);
+                //$(this).append(y);
+                $(this).addClass("o");
             }
             increment();
-
     });
+
 //============Append Image 5x5 board============//
+
     $(document).on('click', '.b2_box', function () {
-        $(this).addClass('marked')
+        $(this).addClass('marked');
         console.log('hi');
         if (swap % 2 === 0) {
             //player 1 gets to go
+            //var x = $('<img>').attr('src', 'images/samurai_swords.png');
+            //$(this).append(x);
+            $(this).addClass("x").addClass("marked").removeClass("black_background").addClass("yellow_background");
             var x = $('<img>').attr('src', 'images/samurai_swords.png');
-            $(this).append(x);
-
 
         } else {
             //player 2 gets to go
             var y = $('<img>').attr('src', 'images/meteor_hammer.png');
-            $(this).append(y);
+            //$(this).append(y);
+            $(this).addClass("o");
         }
         increment();
     });
@@ -200,6 +217,7 @@ $(document).ready(function () {
 //==================Win condition creation================//
 
 //=================3x3 win condition=====================//
+
 
     $(row_1).on('click','.box',function(){
         if (swap % 2 === 0) {
@@ -264,8 +282,6 @@ $(document).ready(function () {
         else(grid[7].push(-1));
         check();
     });
-
-
 
 //=========5x5 win condition =============//
 
@@ -355,15 +371,11 @@ $(document).ready(function () {
     });
 
 //========= Reset ==============//
+
     $('.reset').click(function() {
         $('.box').removeClass('marked');
         $('.b2_box').removeClass('marked');
         boardReset();
     });
 });
-
-
-
-
-
-
+//=====End Document Ready Function =======//
