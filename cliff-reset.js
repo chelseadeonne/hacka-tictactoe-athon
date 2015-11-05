@@ -33,6 +33,14 @@ $(".btn-reset-user").click(function() {
     resetGame();
 });
 
+
+
+
+
+
+
+
+
 // Create game template //
 $(document).ready(function(){
     newGame();
