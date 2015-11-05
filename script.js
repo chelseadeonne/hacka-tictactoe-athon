@@ -91,19 +91,24 @@ $(document).ready(function () {
         $("body").append(title, reset, player_1, game_container2, player_2);
     });
     $(document).on('click', '.box', function () {
-        console.log('hi');
-        if (swap % 2 === 0) {
-            //player 1 gets to go
-            var x = $('<img>').attr('src', 'images/samurai_swords.png');
-            $(this).append(x);
+        $(this).addClass('marked');
 
 
-        } else {
-            //player 2 gets to go
-            var y = $('<img>').attr('src', 'images/meteor_hammer.png');
-            $(this).append(y);
-        }
-        increment();
+            console.log('hi');
+            if (swap % 2 === 0) {
+                //player 1 gets to go
+                var x = $('<img>').attr('src', 'images/samurai_swords.png');
+                $(this).append(x);
+                $(this).attr('marked', 'true');
+
+
+            } else {
+                //player 2 gets to go
+                var y = $('<img>').attr('src', 'images/meteor_hammer.png');
+                $(this).append(y);
+            }
+            increment();
+        
     });
     $(document).on('click', '.b2_box', function () {
         console.log('hi');
@@ -338,7 +343,7 @@ $(document).ready(function () {
             else if (turn % 2 !== 0) {
                 r3[2] = "o";
                 c3[2] = 'o';
-                d1[2] = 'o'
+                d1[2] = 'o';
                 console.log(r3, c3, d1);
                 turn++;
             }
