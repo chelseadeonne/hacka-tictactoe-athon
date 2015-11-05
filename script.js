@@ -84,8 +84,8 @@ function boardReset() {
         while(images.length>0){
             images[0].parentNode.removeChild(images[0]);
         }
-
-        swap=0;
+        turn = 0;
+        swap= 0;
         r1 = [];
         r2 = [];
         r3 = [];
@@ -101,6 +101,7 @@ function boardReset() {
         d1 = [];
         d2 = [];
     }
+
 }
 
 //===============win check conditional ===============//
