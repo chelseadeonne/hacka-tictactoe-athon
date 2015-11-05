@@ -8,7 +8,8 @@ body {
     height: 100vh;
     width: 100vw;
     text-align: center;
-    background: url(images/samurai_swords.png) left top no-repeat, url(images/meteor_hammer.png) right top no-repeat;
+    background-image: url(images/background.jpg);
+   /* background: url(images/samurai_swords.png) left top no-repeat, url(images/meteor_hammer.png) right top no-repeat;*/
     background-size: 10% 10%;
     background-color: #4D2600;
 }
