@@ -366,8 +366,8 @@ $(document).ready(function () {
             });
     // Reset //
     $('.reset').click(function() {
-        $('.box').removeClass('.marked');
-        $('.b2_box').removeClass('.marked');
+        $('.box').removeClass('marked');
+        $('.b2_box').removeClass('marked');
         boardReset();
     });
 
