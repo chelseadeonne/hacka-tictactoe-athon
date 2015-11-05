@@ -108,7 +108,7 @@ $(document).ready(function () {
                 $(this).append(y);
             }
             increment();
-        
+
     });
     $(document).on('click', '.b2_box', function () {
         console.log('hi');
