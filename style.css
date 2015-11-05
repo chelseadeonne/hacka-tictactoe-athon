@@ -66,15 +66,19 @@ div {
     height: 15%;
     border: none;
 }
+.black_background {
+    background-color: black;
+}
+.yellow_background {
+    background-color: yellow;
+}
 .box {
     width: 20%;
     height: 100%;
-    border: 5px solid transparent;
-    padding: 10px 20px;
-    -moz-border-image:url("images/bamboo_border.jpg") 30 30 stretch; /* Old Firefox */
-    -webkit-border-image:url("images/bamboo_border.jpg") 30 30 stretch; /* Safari */
-    -o-border-image:url("images/bamboo_border.jpg") 30 30 stretch; /* Opera */
-    border-image:url("images/bamboo_border.jpg") 30 30 stretch;
+    border: 2px solid yellow;
+}
+.box:hover {
+    background-color: white;
 }
 .b2_row {
     width: 100%;
@@ -84,12 +88,10 @@ div {
 .b2_box {
     width: 12%;
     height: 100%;
-    border: 4px solid transparent;
-    padding: 1px 5px;
-    -moz-border-image:url("images/bamboo_border.jpg") 30 30 stretch; /* Old Firefox */
-    -webkit-border-image:url("images/bamboo_border.jpg") 30 30 stretch; /* Safari */
-    -o-border-image:url("images/bamboo_border.jpg") 30 30 stretch; /* Opera */
-    border-image:url("images/bamboo_border.jpg") 30 30 stretch;
+    border: 2px solid yellow;
+}
+.b2_box:hover {
+    background-color: white;
 }
 .board_options {
     width: 60vw;

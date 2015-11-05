@@ -89,11 +89,13 @@ $(document).ready(function () {
         $(board_options).hide();
         $(game_container1).show();
         $("body").append(title, reset, player_1, game_container1, player_2);
+        $(".box").addClass("black_background");
     });
     $(board_option2).on('click', function () {
         $(board_options).hide();
         $(game_container2).show();
         $("body").append(title, reset, player_1, game_container2, player_2);
+        $(".b2_box").addClass("black_background");
     });
 
     // Image Append //
@@ -107,7 +109,7 @@ $(document).ready(function () {
                 //player 1 gets to go
                 var x = $('<img>').attr('src', 'images/samurai_swords.png');
                 //$(this).append(x);
-                $(this).addClass("x");
+                $(this).addClass("x").removeClass("black_background").addClass("yellow_background");
                 $(this).attr('marked', 'true');
 
 
@@ -126,7 +128,7 @@ $(document).ready(function () {
             //player 1 gets to go
             //var x = $('<img>').attr('src', 'images/samurai_swords.png');
             //$(this).append(x);
-            $(this).addClass("x")
+            $(this).addClass("x").removeClass("black_background").addClass("yellow_background");
 
 
         } else {
