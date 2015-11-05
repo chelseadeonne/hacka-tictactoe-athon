@@ -50,233 +50,233 @@ grid.push(r1, r2, r3, c1, c2, c3, d1, d2);
 //    })
 //});
 
-    $(box_1).on('click', function () {
-        if (r1[0] === undefined) {
-            if (turn % 2 === 0) {
-                r1[0] = "x";
-                c1[0] = 'x';
-                d1[0] = 'x';
-                console.log(r1, c1, d1);
-                turn++;
-            }
-            else if (turn % 2 !== 0) {
-                r1[0] = "o";
-                c1[0] = 'o';
-                d1[0] = 'o';
-                console.log(r1, c1, d1);
-                turn++;
-            }
-            else {
-                console.log("error");
-            }
+$(box_1).on('click', function () {
+    if (r1[0] === undefined) {
+        if (turn % 2 === 0) {
+            r1[0] = "x";
+            c1[0] = 'x';
+            d1[0] = 'x';
+            console.log(r1, c1, d1);
+            turn++;
+        }
+        else if (turn % 2 !== 0) {
+            r1[0] = "o";
+            c1[0] = 'o';
+            d1[0] = 'o';
+            console.log(r1, c1, d1);
+            turn++;
         }
         else {
-            return;
+            console.log("error");
         }
-        check();
-    });
+    }
+    else {
+        return;
+    }
+    check();
+});
 
-    $(box_2).on('click', function () {
-        if (r1[1] === undefined) {
-            if (turn % 2 === 0) {
-                r1[1] = "x";
-                c2[0] = 'x';
-                console.log(r1, c2);
-                turn++;
-            }
-            else if (turn % 2 !== 0) {
-                r1[1] = "o";
-                c2[0] = 'o';
-                console.log(r1, c2);
-                turn++;
-            }
-            else {
-                console.log("error");
-            }
+$(box_2).on('click', function () {
+    if (r1[1] === undefined) {
+        if (turn % 2 === 0) {
+            r1[1] = "x";
+            c2[0] = 'x';
+            console.log(r1, c2);
+            turn++;
+        }
+        else if (turn % 2 !== 0) {
+            r1[1] = "o";
+            c2[0] = 'o';
+            console.log(r1, c2);
+            turn++;
         }
         else {
-            return;
+            console.log("error");
         }
-        check();
-    });
+    }
+    else {
+        return;
+    }
+    check();
+});
 
-    $(box_3).on('click', function () {
-        if (r1[2] === undefined) {
-            if (turn % 2 === 0) {
-                r1[2] = "x";
-                c3[0] = 'x';
-                d2[0] = 'x';
-                console.log(r1, c3, d2);
-                turn++;
-            }
-            else if (turn % 2 !== 0) {
-                r1[2] = "o";
-                c3[0] = 'o';
-                d2[0] = 'o';
-                console.log(r1, c3, d2);
-                turn++;
-            }
-            else {
-                console.log("error");
-            }
+$(box_3).on('click', function () {
+    if (r1[2] === undefined) {
+        if (turn % 2 === 0) {
+            r1[2] = "x";
+            c3[0] = 'x';
+            d2[0] = 'x';
+            console.log(r1, c3, d2);
+            turn++;
+        }
+        else if (turn % 2 !== 0) {
+            r1[2] = "o";
+            c3[0] = 'o';
+            d2[0] = 'o';
+            console.log(r1, c3, d2);
+            turn++;
         }
         else {
-            return;
+            console.log("error");
         }
-       check();
-    });
+    }
+    else {
+        return;
+    }
+    check();
+});
 
-    $(box_4).on('click', function () {
-        if (r2[0] === undefined) {
-            if (turn % 2 === 0) {
-                r2[0] = "x";
-                c1[1] = 'x';
-                console.log(r2, c1);
-                turn++;
-            }
-            else if (turn % 2 !== 0) {
-                r2[0] = "o";
-                c1[1] = 'o';
-                console.log(r2, c1);
-                turn++;
-            }
-            else {
-                console.log("error");
-            }
+$(box_4).on('click', function () {
+    if (r2[0] === undefined) {
+        if (turn % 2 === 0) {
+            r2[0] = "x";
+            c1[1] = 'x';
+            console.log(r2, c1);
+            turn++;
+        }
+        else if (turn % 2 !== 0) {
+            r2[0] = "o";
+            c1[1] = 'o';
+            console.log(r2, c1);
+            turn++;
         }
         else {
-            return;
+            console.log("error");
         }
-        check();
-    });
+    }
+    else {
+        return;
+    }
+    check();
+});
 
-    $(box_5).on('click', function () {
-        if (r2[1] === undefined) {
-            if (turn % 2 === 0) {
-                r2[1] = "x";
-                c2[1] = 'x';
-                d1[1] = 'x';
-                d2[1] = 'x';
-                console.log(r2, c2, d1, d2);
-                turn++;
-            }
-            else if (turn % 2 !== 0) {
-                r2[1] = "o";
-                c2[1] = 'o';
-                d1[1] = 'o';
-                d2[1] = 'o';
-                console.log(r2, c2, d1, d2);
-                turn++;
-            }
-            else {
-                console.log("error");
-            }
+$(box_5).on('click', function () {
+    if (r2[1] === undefined) {
+        if (turn % 2 === 0) {
+            r2[1] = "x";
+            c2[1] = 'x';
+            d1[1] = 'x';
+            d2[1] = 'x';
+            console.log(r2, c2, d1, d2);
+            turn++;
+        }
+        else if (turn % 2 !== 0) {
+            r2[1] = "o";
+            c2[1] = 'o';
+            d1[1] = 'o';
+            d2[1] = 'o';
+            console.log(r2, c2, d1, d2);
+            turn++;
         }
         else {
-            return;
+            console.log("error");
         }
-        check();
-    });
+    }
+    else {
+        return;
+    }
+    check();
+});
 
-    $(box_6).on('click', function () {
-        if (r2[2] === undefined) {
-            if (turn % 2 === 0) {
-                r2[2] = "x";
-                c3[1] = 'x';
-                console.log(r2, c3);
-                turn++;
-            }
-            else if (turn % 2 !== 0) {
-                r2[2] = "o";
-                c3[1] = 'o';
-                console.log(r2, c3);
-                turn++;
-            }
-            else {
-                console.log("error");
-            }
+$(box_6).on('click', function () {
+    if (r2[2] === undefined) {
+        if (turn % 2 === 0) {
+            r2[2] = "x";
+            c3[1] = 'x';
+            console.log(r2, c3);
+            turn++;
+        }
+        else if (turn % 2 !== 0) {
+            r2[2] = "o";
+            c3[1] = 'o';
+            console.log(r2, c3);
+            turn++;
         }
         else {
-            return;
+            console.log("error");
         }
-        check();
-    });
+    }
+    else {
+        return;
+    }
+    check();
+});
 
-    $(box_7).on('click', function () {
-        if (r3[0] === undefined) {
-            if (turn % 2 === 0) {
-                r3[0] = "x";
-                c1[2] = 'x';
-                d2[2] = 'x';
-                console.log(r3, c1, d2);
-                turn++;
-            }
-            else if (turn % 2 !== 0) {
-                r3[0] = "o";
-                c1[2] = 'o';
-                d2[2] = 'o';
-                console.log(r3, c1, d2);
-                turn++;
-            }
-            else {
-                console.log("error");
-            }
+$(box_7).on('click', function () {
+    if (r3[0] === undefined) {
+        if (turn % 2 === 0) {
+            r3[0] = "x";
+            c1[2] = 'x';
+            d2[2] = 'x';
+            console.log(r3, c1, d2);
+            turn++;
+        }
+        else if (turn % 2 !== 0) {
+            r3[0] = "o";
+            c1[2] = 'o';
+            d2[2] = 'o';
+            console.log(r3, c1, d2);
+            turn++;
         }
         else {
-            return;
+            console.log("error");
         }
-        check();
-    });
+    }
+    else {
+        return;
+    }
+    check();
+});
 
-    $(box_8).on('click', function () {
-        if (r3[1] === undefined) {
-            if (turn % 2 === 0) {
-                r3[1] = "x";
-                c2[2] = 'x';
-                console.log(r3, c2);
-                turn++;
-            }
-            else if (turn % 2 !== 0) {
-                r3[1] = "o";
-                c2[2] = 'o';
-                console.log(r3, c2);
-                turn++;
-            }
-            else {
-                console.log("error");
-            }
+$(box_8).on('click', function () {
+    if (r3[1] === undefined) {
+        if (turn % 2 === 0) {
+            r3[1] = "x";
+            c2[2] = 'x';
+            console.log(r3, c2);
+            turn++;
+        }
+        else if (turn % 2 !== 0) {
+            r3[1] = "o";
+            c2[2] = 'o';
+            console.log(r3, c2);
+            turn++;
         }
         else {
-            return;
+            console.log("error");
         }
-        check();
-    });
+    }
+    else {
+        return;
+    }
+    check();
+});
 
-    $(box_9).on('click', function () {
-        if (r3[2] === undefined) {
-            if (turn % 2 === 0) {
-                r3[2] = "x";
-                c3[2] = 'x';
-                d1[2] = 'x';
-                console.log(r3, c3, d1);
-                turn++;
-            }
-            else if (turn % 2 !== 0) {
-                r3[2] = "o";
-                c3[2] = 'o';
-                d1[2] = 'o'
-                console.log(r3, c3, d1);
-                turn++;
-            }
-            else {
-                console.log("error");
-            }
+$(box_9).on('click', function () {
+    if (r3[2] === undefined) {
+        if (turn % 2 === 0) {
+            r3[2] = "x";
+            c3[2] = 'x';
+            d1[2] = 'x';
+            console.log(r3, c3, d1);
+            turn++;
+        }
+        else if (turn % 2 !== 0) {
+            r3[2] = "o";
+            c3[2] = 'o';
+            d1[2] = 'o'
+            console.log(r3, c3, d1);
+            turn++;
         }
         else {
-            return;
+            console.log("error");
         }
-        check();
-    });
+    }
+    else {
+        return;
+    }
+    check();
+});
 
 Array.prototype.checkforwin = function () {
     for (var i = 0; i < this.length - 1; i++) {
@@ -288,7 +288,6 @@ Array.prototype.checkforwin = function () {
         }
     }
 };
-
 
 function check() {
     for (i = 0; i < grid.length; i++) {
