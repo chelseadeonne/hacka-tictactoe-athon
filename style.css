@@ -4,66 +4,77 @@
 }
 body {
     font-family: impact, sans-serif;
-    background-color: black;
     height: 100vh;
     width: 100vw;
     text-align: center;
+    background: url(images/samurai_swords.png) left top no-repeat, url(images/meteor_hammer.png) right top no-repeat;
+    background-size: 10% 10%;
+    background-color: darkred;
 }
 div {
     display: inline-block;
 }
 .title {
-    height: 10%;
-    width: 80%;
+    height: 7%;
+    width: 20%;
     color: yellow;
     display: block;
     margin-right: auto;
     margin-left: auto;
+    margin-bottom: 1%;
+    background-color: black;
 }
-.red {
-    color: darkred;
+.black {
+    color: black;
+    background-color: yellow;
+}
+.player_1 {
+    background-image: url(images/kiddo.png);
+}
+.player_2 {
+    background-image: url(images/o-ren_ishii.png);
 }
 .player_1, .player_2 {
-    color: darkred;
+    color: black;
     width: 10%;
-    height: 40%;
+    height: 100%;
     vertical-align: top;
-    background-image: url(images/player.png);
     background-repeat: no-repeat;
     background-size: 120%;
     background-position: center top;
-
 }
-.player_1 h3, .player_2 h3{
-    margin-top: 30%;
-    text-decoration: underline;
+.player_1 h2, .player_2 h2 {
+    margin-top: -25%;
+    color: yellow;
+    background-color: black;
 }
 .game_container1 {
+    position: relative;
     width: 75%;
     height: 90%;
-    #margin-top: 5%;
     text-align: center;
     border: none;
-    background: url(images/bamboo.png) left top no-repeat, url(images/bamboo.png) center top no-repeat, url(images/bamboo.png) right top no-repeat, url(images/bamboo.png) left center no-repeat, url(images/bamboo.png) center no-repeat, url(images/bamboo.png) right center no-repeat, url(images/bamboo.png) left bottom no-repeat, url(images/bamboo.png) center bottom no-repeat, url(images/bamboo.png) right bottom no-repeat;
-    background-size: 42% 43%;
 }
 .game_container2 {
     width: 75%;
     height: 90%;
-    #margin-top: 5%;
     text-align: center;
     border: none;
-    /*background: url(images/bamboo.png) left top no-repeat, url(images/bamboo.png) center top no-repeat, url(images/bamboo.png) right top no-repeat, url(images/bamboo.png) left center no-repeat, url(images/bamboo.png) center no-repeat, url(images/bamboo.png) right center no-repeat, url(images/bamboo.png) left bottom no-repeat, url(images/bamboo.png) center bottom no-repeat, url(images/bamboo.png) right bottom no-repeat;
-    background-size: 100%;*/
 }
 .row {
-    width: 100%;
-    height: 33%;
+    width: 90%;
+    height: 15%;
     border: none;
 }
 .box {
-    width: 32%;
+    width: 20%;
     height: 100%;
+    border: 5px solid transparent;
+    padding: 10px 20px;
+    -moz-border-image:url("images/bamboo_border.jpg") 30 30 stretch; /* Old Firefox */
+    -webkit-border-image:url("images/bamboo_border.jpg") 30 30 stretch; /* Safari */
+    -o-border-image:url("images/bamboo_border.jpg") 30 30 stretch; /* Opera */
+    border-image:url("images/bamboo_border.jpg") 30 30 stretch;
 }
 .b2_row {
     width: 100%;
@@ -71,9 +82,14 @@ div {
     border: none;
 }
 .b2_box {
-    width: 18%;
+    width: 12%;
     height: 100%;
-    border: 1px solid darkred;
+    border: 4px solid transparent;
+    padding: 1px 5px;
+    -moz-border-image:url("images/bamboo_border.jpg") 30 30 stretch; /* Old Firefox */
+    -webkit-border-image:url("images/bamboo_border.jpg") 30 30 stretch; /* Safari */
+    -o-border-image:url("images/bamboo_border.jpg") 30 30 stretch; /* Opera */
+    border-image:url("images/bamboo_border.jpg") 30 30 stretch;
 }
 .board_options {
     width: 60vw;
@@ -106,5 +122,21 @@ button:focus {
     outline: none;
 }
 button:hover {
-    background-color: darkred;
+    background-color: black;
+    color: yellow;
+}
+.marked {
+    pointer-events: none;
+}
+.x {
+    background-image: url(images/samurai_swords.png);
+    background-repeat: no-repeat;
+    background-size: 65%;
+    background-position: 50%;
+}
+.o {
+    background-image: url(images/meteor_hammer.png);
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: 50%;
 }
