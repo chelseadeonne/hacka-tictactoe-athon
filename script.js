@@ -16,7 +16,8 @@ var size = 3;
 var swap = 0;
 //dynamic board creation for 3x3 and 5x5
 
-var player_1 = $("<div class='player_1'><h3>Player 1</h3></div>"),
+
+    var player_1 = $("<div class='player_1'><h3>Player 1</h3></div>"),
     player_2 = $("<div class='player_2'><h3>Player 2</h3></div>"),
     game_container1 = $("<div class='game_container1'></div>"),
     row_1 = $("<div class='row row_1'></div>"),
@@ -92,20 +93,26 @@ $(document).ready(function () {
     });
 
     // Image Append //
+
     $(document).on('click', '.box', function () {
-        console.log('hi');
-        if (swap % 2 === 0) {
-            //player 1 gets to go
-            var x = $('<img>').attr('src', 'images/samurai_swords.png');
-            $(this).append(x);
+        $(this).addClass('marked');
 
 
-        } else {
-            //player 2 gets to go
-            var y = $('<img>').attr('src', 'images/meteor_hammer.png');
-            $(this).append(y);
-        }
-        increment();
+            console.log('hi');
+            if (swap % 2 === 0) {
+                //player 1 gets to go
+                var x = $('<img>').attr('src', 'images/samurai_swords.png');
+                $(this).append(x);
+                $(this).attr('marked', 'true');
+
+
+            } else {
+                //player 2 gets to go
+                var y = $('<img>').attr('src', 'images/meteor_hammer.png');
+                $(this).append(y);
+            }
+            increment();
+
     });
     $(document).on('click', '.b2_box', function () {
         console.log('hi');
@@ -122,6 +129,7 @@ $(document).ready(function () {
         }
         increment();
     });
+
 
     // Win condition creation //
 
@@ -342,7 +350,7 @@ $(document).ready(function () {
             else if (turn % 2 !== 0) {
                 r3[2] = "o";
                 c3[2] = 'o';
-                d1[2] = 'o'
+                d1[2] = 'o';
                 console.log(r3, c3, d1);
                 turn++;
             }
@@ -354,15 +362,16 @@ $(document).ready(function () {
             return;
         }
         check();
+
             });
     // Reset //
     $('.reset').click(function() {
-        $('div').removeClass('.marked');
+        $('.box').removeClass('.marked');
+        $('.b2_box').removeClass('.marked');
         boardReset();
     });
 
 });
-
 
 //end document ready function
 
@@ -393,6 +402,7 @@ function increment(){
 }
 
 
+
 // Resets board and images //
 
 function boardReset() {
@@ -403,7 +413,7 @@ function boardReset() {
             images[0].parentNode.removeChild(images[0]);
         }
 
-
+        swap=0;
         r1 = [];
         r2 = [];
         r3 = [];
@@ -416,3 +426,4 @@ function boardReset() {
         d2 = [];
     }
 }
+
