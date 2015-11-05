@@ -97,7 +97,7 @@ function boardReset() {
         $("body").find(game_container2).hide();
         $(board_options).show();
         $("body").append(title, reboot, player_1, board_options, player_2);
-        
+
         swap = 0;
         turn = 0;
         r1 = [];
