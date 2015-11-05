@@ -1,4 +1,4 @@
-var title = $("<div class='title'><h1>Tic <span class='red'>-</span> Tac <span class='red'>-</span> <span class='red'>Tarantino</span></h1></div>");
+var title = $("<div class='title'><h1>Tic - Tac - <span class='black'>Tarantino</span></h1></div>");
 var grid = [];
 
 var r1 = [];
@@ -21,10 +21,12 @@ var turn = 0;
 var size;
 var swap = 0;
 
+var theme_music = true;
+
 //dynamic board creation for 3x3 and 5x5
-    var win = $('<h1>');
-    var lose = $('<img>').attr('src','images/Blood-Slash.png').addClass('tally');
-    var player_1 = $("<div class='player_1'><h2>Kiddo</h2></div>"),
+var win = $('<h1>');
+var lose = $('<img>').attr('src','images/Blood-Slash.png').addClass('tally');
+var player_1 = $("<div class='player_1'><h2>Kiddo</h2></div>"),
     player_2 = $("<div class='player_2'><h2>O-Ren Ishii</h2></div>"),
     game_container1 = $("<div class='game_container1'></div>"),
     row_1 = $("<div class='row row_1'></div>"),
@@ -73,8 +75,7 @@ var swap = 0;
     board_options = $("<div class='board_options'></div>"),
     board_option1 = $("<div class='board_option1'><button>3 Rows</button></div>"),
     board_option2 = $("<div class='board_option2'><button>5 Rows</button></div>"),
-    reset = $("<div class='reset'><button>Reset</button></div>"),
-    kiddo = $("<div class='kiddo'><img src='images/kiddo.png'</div>");
+    reboot = $("<div class='reboot'><button class='reset'>Reset</button><button id='theme_music'>Stop Music</button></div>");
 
 //==============increment to swap between players===============//
 
@@ -95,7 +96,7 @@ function boardReset() {
         $("body").find(game_container1).hide();
         $("body").find(game_container2).hide();
         $(board_options).show();
-        $("body").append(title, reset, player_1, board_options, player_2);
+        $("body").append(title, reboot, player_1, board_options, player_2);
         /*var images = document.getElementsByTagName('img');
          while(images.length>0){
          images[0].parentNode.removeChild(images[0]);
@@ -134,7 +135,7 @@ function check() {
         player_1.append(win.text('WINS'));
         player_2.append(lose);
     }
-    }
+}
 
 //===============document ready function start==============//
 
@@ -152,8 +153,8 @@ $(document).ready(function () {
     $(b2_row5).append(b2_box21, b2_box22, b2_box23, b2_box24, b2_box25);
     $(board_options).append(board_option1, board_option2);
     $(game_container1).append(row_1, row_2, row_3);
-    $(game_container2).append(b2_row1, b2_row2, b2_row3, b2_row4, b2_row5, reset);
-    $("body").append(title, reset, player_1, board_options, player_2);
+    $(game_container2).append(b2_row1, b2_row2, b2_row3, b2_row4, b2_row5);
+    $("body").append(title, reboot, player_1, board_options, player_2);
 
 //=================3x3 Board Creation==================//
 
@@ -161,7 +162,7 @@ $(document).ready(function () {
         grid.push(r1, r2, r3, c1, c2, c3, d1, d2);
         $(board_options).hide();
         $(game_container1).show();
-        $("body").append(title, reset, player_1, game_container1, player_2);
+        $("body").append(title, reboot, player_1, game_container1, player_2);
         $(".box").addClass("black_background");
         size = 3;
     });
@@ -170,27 +171,28 @@ $(document).ready(function () {
         grid.push(r1,r2,r3,r4,r5,c1,c2,c3,c4,c5,d1,d2);
         $(board_options).hide();
         $(game_container2).show();
-        $("body").append(title, reset, player_1, game_container2, player_2);
+        $("body").append(title, reboot, player_1, game_container2, player_2);
         $(".b2_box").addClass("black_background");
         size = 5;
     });
+
 //=================Image Append 3x3 board==================//
     $(document).on('click', '.box', function () {
         $(this).addClass('marked');
-            console.log('hi');
-            if (swap % 2 === 0) {
-                //player 1 gets to go
-                var x = $('<img>').attr('src', 'images/samurai_swords.png');
-                //$(this).append(x);
-                $(this).addClass("x").removeClass("black_background").addClass("yellow_background");
-                $(this).attr('marked', 'true');
-            } else {
-                //player 2 gets to go
-                var y = $('<img>').attr('src', 'images/meteor_hammer.png');
-                //$(this).append(y);
-                $(this).addClass("o");
-            }
-            increment();
+        console.log('hi');
+        if (swap % 2 === 0) {
+            //player 1 gets to go
+            var x = $('<img>').attr('src', 'images/samurai_swords.png');
+            //$(this).append(x);
+            $(this).addClass("x").removeClass("black_background").addClass("yellow_background");
+            $(this).attr('marked', 'true');
+        } else {
+            //player 2 gets to go
+            var y = $('<img>').attr('src', 'images/meteor_hammer.png');
+            //$(this).append(y);
+            $(this).addClass("o");
+        }
+        increment();
     });
 
 //============Append Image 5x5 board============//
@@ -377,5 +379,21 @@ $(document).ready(function () {
         $('.b2_box').removeClass('marked');
         boardReset();
     });
+//========= Theme Music ==============//
+
+    kill_bill_mix.play();
+
+    $("#theme_music").on('click', function(){
+        if (theme_music === true) {
+            theme_music = false;
+            kill_bill_mix.pause();
+            $("#theme_music").html("Play Music")
+        }else {
+            kill_bill_mix.play();
+            $("#theme_music").html("Stop Music");
+            theme_music = true;
+        }
+    });
+
 });
 //=====End Document Ready Function =======//

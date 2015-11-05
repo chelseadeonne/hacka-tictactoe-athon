@@ -10,7 +10,7 @@ body {
     text-align: center;
     background: url(images/samurai_swords.png) left top no-repeat, url(images/meteor_hammer.png) right top no-repeat;
     background-size: 10% 10%;
-    background-color: darkred;
+    background-color: #4D2600;
 }
 
 div {
@@ -41,7 +41,7 @@ div {
     background-image: url(images/o-ren_ishii.png);
 }
 
-.red {
+.black {
     color: black;
 
 }
@@ -126,14 +126,14 @@ button {
     height: 50%;
     border: none;
 }
-.reset {
-    width: 10%;
+.reboot {
+    width: 20%;
     height: 10%;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
-.reset button {
+.reboot button, #theme_music {
     font-size: 1em;
 }
 button:focus {
@@ -141,7 +141,7 @@ button:focus {
 }
 button:hover {
     color: yellow;
-    background-color: darkred;
+    background-color: black;
 }
 .marked {
     pointer-events: none;
