@@ -4,7 +4,7 @@
 }
 body {
     font-family: impact, sans-serif;
-    background-color: black;
+    background-color: darkred;
     height: 100vh;
     width: 100vw;
     text-align: center;
@@ -21,10 +21,10 @@ div {
     margin-left: auto;
 }
 .red {
-    color: darkred;
+    color: black;
 }
 .player_1, .player_2 {
-    color: darkred;
+    color: black;
     width: 10%;
     height: 40%;
     vertical-align: top;
@@ -64,6 +64,14 @@ div {
 .box {
     width: 32%;
     height: 100%;
+    position: relative;
+}
+img {
+    width: 65%;
+    height: 50%;
+    top: 30%;
+    left: 25%;
+    position: absolute;
 }
 .b2_row {
     width: 100%;
@@ -73,7 +81,8 @@ div {
 .b2_box {
     width: 18%;
     height: 100%;
-    border: 1px solid darkred;
+    border: 1px solid black;
+    position: relative;
 }
 .board_options {
     width: 60vw;
