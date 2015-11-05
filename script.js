@@ -213,11 +213,13 @@ $(document).ready(function () {
             //player 1 gets to go
             //var x = $('<img>').attr('src', 'images/samurai_swords.png');
             //$(this).append(x);
+            sword.play();
             $(this).addClass("x").addClass("marked").removeClass("black_background").addClass("yellow_background");
             var x = $('<img>').attr('src', 'images/samurai_swords.png');
 
         } else {
             //player 2 gets to go
+            meteor_hammer.play();
             var y = $('<img>').attr('src', 'images/meteor_hammer.png');
             //$(this).append(y);
             $(this).addClass("o");
