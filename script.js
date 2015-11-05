@@ -76,8 +76,10 @@ $(document).ready(function(){
         console.log('row one clicked');
         isEven(turn);
         increment();
+        //var y = $('<img>').attr('src', 'images/meteor_hammer.png');
+        //$(this).append(y);
     });
-    $(row_2).find('.box').on('click', function(){
+    /*$(row_2).find('.box').on('click', function(){
         console.log('row two clicked');
         isEven(turn);
         increment();
@@ -87,47 +89,32 @@ $(document).ready(function(){
         isEven(turn);
         increment();
     });
-    /*$(b2row_1).find('.box').on('click', function(){
+    $(b2_row1).find('.b2_box').on('click', function(){
+        console.log('row one clicked');
+        isEven(turn);
+        increment();
+    });
+    $(b2_row2).find('.b2_box').on('click', function(){
+        console.log('row two clicked');
+        isEven(turn);
+        increment();
+    });
+    $(b2_row3).find('.b2_box').on('click', function(){
+        console.log('row three clicked');
+        isEven(turn);
+        increment();
+    });
+    $(b2_row4).find('.b2_box').on('click', function(){
         console.log('row four clicked');
         isEven(turn);
         increment();
     });
-    $(b2row_2).find('.box').on('click', function(){
-        console.log('row four clicked');
-        isEven(turn);
-        increment();
-    });
-    $(b2row_3).find('.box').on('click', function(){
-        console.log('row four clicked');
-        isEven(turn);
-        increment();
-    });
-    $(b2row_4).find('.box').on('click', function(){
-        console.log('row four clicked');
-        isEven(turn);
-        increment();
-    });
-    $(b2row_5).find('.box').on('click', function(){
+    $(b2_row5).find('.b2_box').on('click', function(){
         console.log('row five clicked');
         isEven(turn);
         increment();
     });
-    */
-   /* $(row_1).find('.two').on('click', function(){
-        console.log('box two clicked');
-        isEven(turn);
-        increment();
-    });
-    $(row_1).find('.three').on('click', function(){
-        console.log('box three clicked');
-        isEven(turn);
-        increment();
-    });
-    $(row_2).find('.four').on('click', function(){
-        console.log('box four clicked');
-        isEven(turn);
-        increment();
-    });*/
+*/
 });
 
 
@@ -141,11 +128,11 @@ function increment(){
 }
 function appendX(){
     var x = $('<img>').attr('src', 'images/samurai_swords.png');
-    $(row_1).find('.one').append(x);
+    $(this).append(x);
 }
 function appendY(){
     var y = $('<img>').attr('src', 'images/meteor_hammer.png');
-    $(row_1).find('.one').append(y);
+    $(this).append(y);
 }
 function checkVictory(){
     //check arrays for win conditions
