@@ -19,7 +19,8 @@ var turn = 0;
 var size = 3;
 var swap = 0;
 //dynamic board creation for 3x3 and 5x5
-
+    var win = $('<h1>');
+    var lose = $('<img>').attr('src','images/Blood-Slash.png').addClass('tally');
     var player_1 = $("<div class='player_1'><h3>Player 1</h3></div>"),
     player_2 = $("<div class='player_2'><h3>Player 2</h3></div>"),
     game_container1 = $("<div class='game_container1'></div>"),
@@ -84,7 +85,7 @@ function boardReset() {
         while(images.length>0){
             images[0].parentNode.removeChild(images[0]);
         }
-        $('div').removeClass('marked')
+        $('div').removeClass('marked');
 
         swap=0;
         r1 = [];
@@ -114,12 +115,14 @@ function check() {
         }
     }
     if (total == size) {
-        alert('p2wins');
         boardReset();
+        player_2.append(win.text('WINS'));
+        player_1.append(lose)
     }
     else if (total == -size) {
-        alert('p1wins');
         boardReset();
+        player_1.append(win.text('WINS'));
+        player_2.append(lose);
     }
     else {
     }

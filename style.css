@@ -32,6 +32,7 @@ div {
     background-repeat: no-repeat;
     background-size: 120%;
     background-position: center top;
+    position: relative;
 
 }
 .player_1 h3, .player_2 h3{
@@ -119,4 +120,11 @@ button:hover {
 }
 .marked {
     pointer-events: none;
+}
+.tally {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    height: auto;
 }
