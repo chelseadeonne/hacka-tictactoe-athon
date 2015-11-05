@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
 }
+
 body {
     font-family: impact, sans-serif;
     height: 100vh;
@@ -11,9 +12,11 @@ body {
     background-size: 10% 10%;
     background-color: darkred;
 }
+
 div {
     display: inline-block;
 }
+
 .title {
     height: 7%;
     width: 20%;
@@ -24,10 +27,12 @@ div {
     margin-bottom: 1%;
     background-color: black;
 }
+
 .black {
     color: black;
     background-color: yellow;
 }
+
 .player_1 {
     background-image: url(images/kiddo.png);
 }
@@ -35,10 +40,12 @@ div {
 .player_2 {
     background-image: url(images/o-ren_ishii.png);
 }
+
 .red {
     color: black;
 
 }
+
 .player_1, .player_2 {
     color: black;
     width: 10%;
@@ -47,7 +54,9 @@ div {
     background-repeat: no-repeat;
     background-size: 120%;
     background-position: center top;
+    position: relative;
 }
+
 .player_1 h2, .player_2 h2 {
     margin-top: -25%;
     color: yellow;
@@ -61,6 +70,7 @@ div {
     border: none;
 }
 .game_container2 {
+    position: relative;
     width: 75%;
     height: 90%;
     text-align: center;
@@ -136,6 +146,14 @@ button:hover {
 .marked {
     pointer-events: none;
 }
+.tally {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 10%;
+    height: auto;
+}
+
 .x {
     background-image: url(images/samurai_swords.png);
     background-repeat: no-repeat;
@@ -148,4 +166,3 @@ button:hover {
     background-size: 50%;
     background-position: 50%;
 }
-
