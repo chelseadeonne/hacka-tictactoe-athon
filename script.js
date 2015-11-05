@@ -86,6 +86,8 @@ function boardReset() {
             images[0].parentNode.removeChild(images[0]);
         }
         $('div').removeClass('marked');
+        $(player_1).find('h1').remove();
+        $(player_2).find('h1').remove();
 
         swap=0;
         r1 = [];
