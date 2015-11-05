@@ -91,6 +91,8 @@ function boardReset() {
         $('div').removeClass('marked');
         $(player_1).find('h1').remove();
         $(player_2).find('h1').remove();
+        $(player_1).find('img').remove();
+        $(player_2).find('img').remove();
         $(".box").removeClass("x").removeClass("o").removeClass("marked").addClass("black_background").removeClass("yellow_background");
         $(".b2_box").removeClass("x").removeClass("o").removeClass("marked").addClass("black_background").removeClass("yellow_background");
         $("body").find(game_container1).hide();
