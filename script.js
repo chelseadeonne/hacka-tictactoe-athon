@@ -134,69 +134,82 @@ function Player(player_number) {
     this.col3 = 0;
     this.diag1 = 0;
     this.diag2 = 0;
-        this.row1_add = function () {
-            this.row1++;
-        };
-        this.row2_add = function () {
-            this.row2++;
-        };
-        this.row3_add = function () {
-            this.row3++;
-        };
-        this.col1_add = function () {
-            this.col1++;
-        };
-        this.col2_add = function () {
-            this.col2++;
-        };
-        this.col3_add = function () {
-            this.col3++;
-        };
-        this.diag1_add = function () {
-            this.diag1++;
-        };
-        this.diag2_add = function () {
-            this.diag2++;
-        };
-
-
-        this.b2_row1_add = function () {
-            this.row1++;
-        };
-        this.b2_row2_add = function () {
-            this.row1++;
-        };
-        this.b2_row3_add = function () {
-            this.row1++;
-        };
-        this.b2_row4_add = function () {
-            this.row1++;
-        };
-        this.b2_row5_add = function () {
-            this.row1++;
-        };
-        this.b2_col1_add = function () {
-            this.row1++;
-        };
-        this.b2_col2_add = function () {
-            this.row1++;
-        };
-        this.b2_col3_add = function () {
-            this.row1++;
-        };
-        this.b2_col4_add = function () {
-            this.row1++;
-        };
-        this.b2_col5_add = function () {
-            this.row1++;
-        };
-        this.b2_dia1_add = function () {
-            this.row1++;
-        };
-        this.b2_dia2_add = function () {
-            this.row1++;
-        };
+    this.b2_row1 = 0;
+    this.b2_row2 = 0;
+    this.b2_row3 = 0;
+    this.b2_row4 = 0;
+    this.b2_row5 = 0;
+    this.b2_col1 = 0;
+    this.b2_col2 = 0;
+    this.b2_col3 = 0;
+    this.b2_col4 = 0;
+    this.b2_col5 = 0;
+    this.b2_diag1 = 0;
+    this.b2_diag2 = 0;
 }
+
+        //this.row1_add = function () {
+        //    this.row1++;
+        //};
+        //this.row2_add = function () {
+        //    this.row2++;
+        //};
+        //this.row3_add = function () {
+        //    this.row3++;
+        //};
+        //this.col1_add = function () {
+        //    this.col1++;
+        //};
+        //this.col2_add = function () {
+        //    this.col2++;
+        //};
+        //this.col3_add = function () {
+        //    this.col3++;
+        //};
+        //this.diag1_add = function () {
+        //    this.diag1++;
+        //};
+        //this.diag2_add = function () {
+        //    this.diag2++;
+        //};
+        //
+        //
+        //this.b2_row1_add = function () {
+        //    this.row1++;
+        //};
+        //this.b2_row2_add = function () {
+        //    this.row1++;
+        //};
+        //this.b2_row3_add = function () {
+        //    this.row1++;
+        //};
+        //this.b2_row4_add = function () {
+        //    this.row1++;
+        //};
+        //this.b2_row5_add = function () {
+        //    this.row1++;
+        //};
+        //this.b2_col1_add = function () {
+        //    this.row1++;
+        //};
+        //this.b2_col2_add = function () {
+        //    this.row1++;
+        //};
+        //this.b2_col3_add = function () {
+        //    this.row1++;
+        //};
+        //this.b2_col4_add = function () {
+        //    this.row1++;
+        //};
+        //this.b2_col5_add = function () {
+        //    this.row1++;
+        //};
+        //this.b2_dia1_add = function () {
+        //    this.row1++;
+        //};
+        //this.b2_dia2_add = function () {
+        //    this.row1++;
+        //};
 
 
 //===============document ready function start==============//
@@ -300,80 +313,80 @@ $(document).ready(function () {
 
     $(row_1).on('click', '.box', function () {
         if (swap % 2 === 0) {
-            player1.row1_add();
+            player1.row1++;
         }
         else {
-            player2.row1_add();
+            player2.row1++;
         }
         win_condition_check();
     });
 
     $(row_2).on('click', '.box', function () {
         if (swap % 2 === 0) {
-            player1.row2_add();
+            player1.row2++;
         }
         else {
-            player2.row2_add();
+            player2.row2++;
         }
         win_condition_check();
     });
 
     $(row_3).on('click', '.box', function () {
         if (swap % 2 === 0) {
-            player1.row3_add();
+            player1.row3++;
         }
         else {
-            player2.row3_add();
+            player2.row3++;
         }
         win_condition_check();
     });
 
     $(document).on('click', '.col1', function () {
         if (swap % 2 === 0) {
-            player1.col1_add();
+            player1.col1++;
         }
         else {
-            player2.col1_add();
+            player2.col1++;
         }
         win_condition_check();
     });
 
     $(document).on('click', '.col2', function () {
         if (swap % 2 === 0) {
-            player1.col2_add();
+            player1.col2++;
         }
         else {
-            player2.col2_add();
+            player2.col2++;
         }
         win_condition_check();
     });
 
     $(document).on('click', '.col3', function () {
         if (swap % 2 === 0) {
-            player1.col3_add();
+            player1.col3++;
         }
         else {
-            player2.col3_add();
+            player2.col3++;
         }
         win_condition_check();
     });
 
     $(document).on('click', '.dia1', function () {
         if (swap % 2 === 0) {
-            player1.diag1_add();
+            player1.diag1++;
         }
         else {
-            player2.diag1_add();
+            player2.diag1++;
         }
         win_condition_check();
     });
 
     $(document).on('click', '.dia2', function () {
         if (swap % 2 === 0) {
-            player1.diag2_add();
+            player1.diag2++;
         }
         else {
-            player2.diag2_add();
+            player2.diag2++;
         }
         win_condition_check();
     });
@@ -382,109 +395,109 @@ $(document).ready(function () {
 
     $(b2_row1).on('click', '.b2_box', function () {
         if (swap % 2 === 0) {
-            player1.b2_row1_add();
+            player1.b2_row1++;
         }
         else {
-            player2.b2_row_1_add();
+            player2.b2_row1++;
         }
         win_condition_check();
     });
     $(b2_row2).on('click', '.b2_box', function () {
         if (swap % 2 === 0) {
-            player1.b2_row2_add();
+            player1.b2_row2++;
         }
         else {
-            player2.b2_row2_add();
+            player2.b2_row2++;
         }
         win_condition_check();
     });
     $(b2_row3).on('click', '.b2_box', function () {
         if (swap % 2 === 0) {
-            player1.b2_row3_add();
+            player1.b2_row3++;
         }
         else {
-            player2.b2_row3_add();
+            player2.b2_row3++;
         }
         win_condition_check();
     });
     $(b2_row4).on('click', '.b2_box', function () {
         if (swap % 2 === 0) {
-            player1.b2_row4_add();
+            player1.b2_row4++;
         }
         else {
-            player2.b2_row4_add();
+            player2.b2_row4++;
         }
         win_condition_check();
     });
     $(b2_row5).on('click', '.b2_box', function () {
         if (swap % 2 === 0) {
-            player1.b2_row5_add();
+            player1.b2_row5++;
         }
         else {
-            player2.diag2_add();
+            player2.b2_row5++;
         }
         win_condition_check();
     });
     $(document).on('click', '.b2_col1', function () {
         if (swap % 2 === 0) {
-            player1.b2_col1_add();
+            player1.b2_col1++;
         }
         else {
-            player2.b2_col1_add();
+            player2.b2_col1++;
         }
         win_condition_check();
     });
     $(document).on('click', '.b2_col2', function () {
         if (swap % 2 === 0) {
-            player1.b2_col2_add();
+            player1.b2_col2++;
         }
         else {
-            player2.b2_col2_add();
+            player2.b2_col2++;
         }
         win_condition_check();
     });
     $(document).on('click', '.b2_col3', function () {
         if (swap % 2 === 0) {
-            player1.b2_col3_add();
+            player1.b2_col3++;
         }
         else {
-            player2.b2_col3_add();
+            player2.b2_col3++;
         }
         win_condition_check();
     });
     $(document).on('click', '.b2_col4', function () {
         if (swap % 2 === 0) {
-            player1.b2_col4_add();
+            player1.b2_col4++;
         }
         else {
-            player2.b2_col4_add();
+            player2.b2_col4++;
         }
         win_condition_check();
     });
     $(document).on('click', '.b2_col5', function () {
         if (swap % 2 === 0) {
-            player1.b2_col5_add();
+            player1.b2_col5++;
         }
         else {
-            player2.b2_col5_add();
+            player2.b2_col5++;
         }
         win_condition_check();
     });
     $(document).on('click', '.b2_dia1', function () {
         if (swap % 2 === 0) {
-            player1.b2_dia1_add();
+            player1.b2_diag1++;
         }
         else {
-            player2.b2_dia1_add();
+            player2.b2_diag1++;
         }
         win_condition_check();
     });
     $(document).on('click', '.b2_dia2', function () {
         if (swap % 2 === 0) {
-            player1.b2_dia2_add();
+            player1.b2_diag2++;
         }
         else {
-            player2.b2_dia2_add();
+            player2.b2_diag2++;
         }
         win_condition_check();
     });
