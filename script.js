@@ -1,5 +1,6 @@
 var title = $("<div class='title'><h1>Tic - Tac - <span class='black'>Tarantino</span></h1></div>");
-
+var player1;
+var player2;
 var turn = 0;
 
 var size;
@@ -65,60 +66,59 @@ var player_1 = $("<div class='player_1'><h2>Kiddo</h2></div>"),
 
 function increment() {
     swap++;
-    board.turn_indicator =
+    //board.turn_indicator =
 }
 
 //============== Resets board and images ============= //
 
 function boardReset() {
-    for (var i = 0; i < grid.length; i++) {
-        grid[i] = [];
-        $('div').removeClass('marked');
-        $(player_1).find('h1').remove();
-        $(player_2).find('h1').remove();
-        $(player_1).find('img').remove();
-        $(player_2).find('img').remove();
-        $(".box").removeClass("x").removeClass("o").removeClass("marked").addClass("black_background").removeClass("yellow_background");
-        $(".b2_box").removeClass("x").removeClass("o").removeClass("marked").addClass("black_background").removeClass("yellow_background");
-        $("body").find(game_container1).hide();
-        $("body").find(game_container2).hide();
-        $(board_options).show();
-        $("body").append(title, reboot, player_1, board_options, player_2);
+    $('div').removeClass('marked');
+    $(player_1).find('h1').remove();
+    $(player_2).find('h1').remove();
+    $(player_1).find('img').remove();
+    $(player_2).find('img').remove();
+    $(".box").removeClass("x").removeClass("o").removeClass("marked").addClass("black_background").removeClass("yellow_background");
+    $(".b2_box").removeClass("x").removeClass("o").removeClass("marked").addClass("black_background").removeClass("yellow_background");
+    $("body").find(game_container1).hide();
+    $("body").find(game_container2).hide();
+    $(board_options).show();
+    $("body").append(title, reboot, player_1, board_options, player_2);
 
-        swap = 0;
-        turn = 0;
-        r1 = [];
-        r2 = [];
-        r3 = [];
+    swap = 0;
+    turn = 0;
+    r1 = [];
+    r2 = [];
+    r3 = [];
 
-        c1 = [];
-        c2 = [];
-        c3 = [];
+    c1 = [];
+    c2 = [];
+    c3 = [];
 
-        d1 = [];
-        d2 = [];
-    }
+    d1 = [];
+    d2 = [];
 }
 //***********************************************OOP Board*******************************************//
-var board = {
-        this.number_of_cards = 9, //count down for tie.
-    this
-.
-turn_indicator = null; //if player one clicks, that has a property that can be sent to the board.
-
-}
+//var board = {
+//        this.number_of_cards = 9, //count down for tie.
+//        this.
+//.
+//turn_indicator = null; //if player one clicks, that has a property that can be sent to the board.
+//
+//}
 
 //***********************************************WIN CONDITION***************************************//
 function win_condition_check() {
     for (var x in player1) {
-        if (player1[x] === 3) {
+        if (player1[x] === size) {
             alert("player 1 wins!");
+            boardReset();
         }
     }
 
-    for (var x in player2) {
-        if (player2[x] === 3) {
+    for (x in player2) {
+        if (player2[x] === size) {
             alert("player 2 wins!");
+            boardReset();
         }
     }
 }
@@ -134,32 +134,70 @@ function Player(player_number) {
     this.col3 = 0;
     this.diag1 = 0;
     this.diag2 = 0;
-        this.row1add = function () {
+        this.row1_add = function () {
             this.row1++;
         };
-        this.row2add = function () {
+        this.row2_add = function () {
             this.row2++;
         };
-        this.row3add = function () {
+        this.row3_add = function () {
             this.row3++;
         };
-        this.col1add = function () {
+        this.col1_add = function () {
             this.col1++;
         };
-        this.col2add = function () {
+        this.col2_add = function () {
             this.col2++;
         };
-        this.col3add = function () {
+        this.col3_add = function () {
             this.col3++;
         };
-        this.diag1add = function () {
+        this.diag1_add = function () {
             this.diag1++;
         };
-        this.diag2add = function () {
+        this.diag2_add = function () {
             this.diag2++;
         };
 
+
+        this.b2_row1_add = function () {
+            this.row1++;
+        };
+        this.b2_row2_add = function () {
+            this.row1++;
+        };
+        this.b2_row3_add = function () {
+            this.row1++;
+        };
+        this.b2_row4_add = function () {
+            this.row1++;
+        };
+        this.b2_row5_add = function () {
+            this.row1++;
+        };
+        this.b2_col1_add = function () {
+            this.row1++;
+        };
+        this.b2_col2_add = function () {
+            this.row1++;
+        };
+        this.b2_col3_add = function () {
+            this.row1++;
+        };
+        this.b2_col4_add = function () {
+            this.row1++;
+        };
+        this.b2_col5_add = function () {
+            this.row1++;
+        };
+        this.b2_dia1_add = function () {
+            this.row1++;
+        };
+        this.b2_dia2_add = function () {
+            this.row1++;
+        };
 }
+
 
 //===============document ready function start==============//
 
@@ -183,7 +221,8 @@ $(document).ready(function () {
 //=================3x3 Board Creation==================//
 
     $(board_option1).on('click', function () {
-        grid.push(r1, r2, r3, c1, c2, c3, d1, d2);
+        player1 = new Player("one");
+        player2 = new Player("two");
         $(board_options).hide();
         $(game_container1).show();
         $("body").append(title, reboot, player_1, game_container1, player_2);
@@ -196,7 +235,9 @@ $(document).ready(function () {
     });
 //============5x5 board Creation============//
     $(board_option2).on('click', function () {
-        grid.push(r1, r2, r3, r4, r5, c1, c2, c3, c4, c5, d1, d2);
+
+        player1 = new Player("one");
+        player2 = new Player("two");
         $(board_options).hide();
         $(game_container2).show();
         $("body").append(title, reboot, player_1, game_container2, player_2);
@@ -261,8 +302,8 @@ $(document).ready(function () {
         if (swap % 2 === 0) {
             player1.row1_add();
         }
-        else{
-            player2,row1_add();
+        else {
+            player2.row1_add();
         }
         win_condition_check();
     });
@@ -271,8 +312,8 @@ $(document).ready(function () {
         if (swap % 2 === 0) {
             player1.row2_add();
         }
-        else{
-            player2,row2_add();
+        else {
+            player2.row2_add();
         }
         win_condition_check();
     });
@@ -281,8 +322,8 @@ $(document).ready(function () {
         if (swap % 2 === 0) {
             player1.row3_add();
         }
-        else{
-            player2,row3_add();
+        else {
+            player2.row3_add();
         }
         win_condition_check();
     });
@@ -291,8 +332,8 @@ $(document).ready(function () {
         if (swap % 2 === 0) {
             player1.col1_add();
         }
-        else{
-            player2,col1_add();
+        else {
+            player2.col1_add();
         }
         win_condition_check();
     });
@@ -301,8 +342,8 @@ $(document).ready(function () {
         if (swap % 2 === 0) {
             player1.col2_add();
         }
-        else{
-            player2,col2_add();
+        else {
+            player2.col2_add();
         }
         win_condition_check();
     });
@@ -311,8 +352,8 @@ $(document).ready(function () {
         if (swap % 2 === 0) {
             player1.col3_add();
         }
-        else{
-            player2,col3_add();
+        else {
+            player2.col3_add();
         }
         win_condition_check();
     });
@@ -321,8 +362,8 @@ $(document).ready(function () {
         if (swap % 2 === 0) {
             player1.diag1_add();
         }
-        else{
-            player2,diag1_add();
+        else {
+            player2.diag1_add();
         }
         win_condition_check();
     });
@@ -331,8 +372,8 @@ $(document).ready(function () {
         if (swap % 2 === 0) {
             player1.diag2_add();
         }
-        else{
-            player2,diag2_add();
+        else {
+            player2.diag2_add();
         }
         win_condition_check();
     });
@@ -341,87 +382,111 @@ $(document).ready(function () {
 
     $(b2_row1).on('click', '.b2_box', function () {
         if (swap % 2 === 0) {
-            grid[0].push(1);
+            player1.b2_row1_add();
         }
-        else(grid[0].push(-1));
-        check();
+        else {
+            player2.b2_row_1_add();
+        }
+        win_condition_check();
     });
     $(b2_row2).on('click', '.b2_box', function () {
         if (swap % 2 === 0) {
-            grid[1].push(1);
+            player1.b2_row2_add();
         }
-        else(grid[1].push(-1));
-        check();
+        else {
+            player2.b2_row2_add();
+        }
+        win_condition_check();
     });
     $(b2_row3).on('click', '.b2_box', function () {
         if (swap % 2 === 0) {
-            grid[2].push(1);
+            player1.b2_row3_add();
         }
-        else(grid[2].push(-1));
-        check();
+        else {
+            player2.b2_row3_add();
+        }
+        win_condition_check();
     });
     $(b2_row4).on('click', '.b2_box', function () {
         if (swap % 2 === 0) {
-            grid[3].push(1);
+            player1.b2_row4_add();
         }
-        else(grid[3].push(-1));
-        check();
+        else {
+            player2.b2_row4_add();
+        }
+        win_condition_check();
     });
     $(b2_row5).on('click', '.b2_box', function () {
         if (swap % 2 === 0) {
-            grid[4].push(1);
+            player1.b2_row5_add();
         }
-        else(grid[4].push(-1));
-        check();
+        else {
+            player2.diag2_add();
+        }
+        win_condition_check();
     });
     $(document).on('click', '.b2_col1', function () {
         if (swap % 2 === 0) {
-            grid[5].push(1);
+            player1.b2_col1_add();
         }
-        else(grid[5].push(-1));
-        check();
+        else {
+            player2.b2_col1_add();
+        }
+        win_condition_check();
     });
     $(document).on('click', '.b2_col2', function () {
         if (swap % 2 === 0) {
-            grid[6].push(1);
+            player1.b2_col2_add();
         }
-        else(grid[6].push(-1));
-        check();
+        else {
+            player2.b2_col2_add();
+        }
+        win_condition_check();
     });
     $(document).on('click', '.b2_col3', function () {
         if (swap % 2 === 0) {
-            grid[7].push(1);
+            player1.b2_col3_add();
         }
-        else(grid[7].push(-1));
-        check();
+        else {
+            player2.b2_col3_add();
+        }
+        win_condition_check();
     });
     $(document).on('click', '.b2_col4', function () {
         if (swap % 2 === 0) {
-            grid[8].push(1);
+            player1.b2_col4_add();
         }
-        else(grid[8].push(-1));
-        check();
+        else {
+            player2.b2_col4_add();
+        }
+        win_condition_check();
     });
     $(document).on('click', '.b2_col5', function () {
         if (swap % 2 === 0) {
-            grid[9].push(1);
+            player1.b2_col5_add();
         }
-        else(grid[9].push(-1));
-        check();
+        else {
+            player2.b2_col5_add();
+        }
+        win_condition_check();
     });
     $(document).on('click', '.b2_dia1', function () {
         if (swap % 2 === 0) {
-            grid[10].push(1);
+            player1.b2_dia1_add();
         }
-        else(grid[10].push(-1));
-        check();
+        else {
+            player2.b2_dia1_add();
+        }
+        win_condition_check();
     });
     $(document).on('click', '.b2_dia2', function () {
         if (swap % 2 === 0) {
-            grid[11].push(1);
+            player1.b2_dia2_add();
         }
-        else(grid[11].push(-1));
-        check();
+        else {
+            player2.b2_dia2_add();
+        }
+        win_condition_check();
     });
 
 //========= Reset ==============//
