@@ -1,20 +1,4 @@
 var title = $("<div class='title'><h1>Tic - Tac - <span class='black'>Tarantino</span></h1></div>");
-var grid = [];
-
-var r1 = [];
-var r2 = [];
-var r3 = [];
-var r4 = [];
-var r5 = [];
-
-var c1 = [];
-var c2 = [];
-var c3 = [];
-var c4 = [];
-var c5 = [];
-
-var d1 = [];
-var d2 = [];
 
 var turn = 0;
 
@@ -25,7 +9,7 @@ var theme_music = true;
 
 //dynamic board creation for 3x3 and 5x5
 var win = $('<h1>');
-var lose = $('<img>').attr('src','images/Blood-Slash.png').addClass('tally');
+var lose = $('<img>').attr('src', 'images/Blood-Slash.png').addClass('tally');
 var player_1 = $("<div class='player_1'><h2>Kiddo</h2></div>"),
     player_2 = $("<div class='player_2'><h2>O-Ren Ishii</h2></div>"),
     game_container1 = $("<div class='game_container1'></div>"),
@@ -79,8 +63,9 @@ var player_1 = $("<div class='player_1'><h2>Kiddo</h2></div>"),
 
 //==============increment to swap between players===============//
 
-function increment(){
+function increment() {
     swap++;
+    board.turn_indicator =
 }
 
 //============== Resets board and images ============= //
@@ -99,7 +84,7 @@ function boardReset() {
         $("body").find(game_container2).hide();
         $(board_options).show();
         $("body").append(title, reboot, player_1, board_options, player_2);
-        
+
         swap = 0;
         turn = 0;
         r1 = [];
@@ -114,26 +99,66 @@ function boardReset() {
         d2 = [];
     }
 }
+//***********************************************OOP Board*******************************************//
+var board = {
+        this.number_of_cards = 9, //count down for tie.
+    this
+.
+turn_indicator = null; //if player one clicks, that has a property that can be sent to the board.
 
-//===============win check conditional ===============//
-function check() {
-    for (var i = 0; i < grid.length; i++) {
-        if (grid[i].length == size) {
-            var total = grid[i].reduce(function (a, b) {
-                return (a + b);
-            });
+}
+
+//***********************************************WIN CONDITION***************************************//
+function win_condition_check() {
+    for (var x in player1) {
+        if (player1[x] === 3) {
+            alert("player 1 wins!");
         }
     }
-    if (total == size) {
-        boardReset();
-        player_2.append(win.text('WINS'));
-        player_1.append(lose)
+
+    for (var x in player2) {
+        if (player2[x] === 3) {
+            alert("player 2 wins!");
+        }
     }
-    else if (total == -size) {
-        boardReset();
-        player_1.append(win.text('WINS'));
-        player_2.append(lose);
-    }
+}
+
+//************************************************CONSTRUCTOR*****************************************//
+function Player(player_number) {
+    this.number = player_number;
+    this.row1 = 0;
+    this.row2 = 0;
+    this.row3 = 0;
+    this.col1 = 0;
+    this.col2 = 0;
+    this.col3 = 0;
+    this.diag1 = 0;
+    this.diag2 = 0;
+        this.row1add = function () {
+            this.row1++;
+        };
+        this.row2add = function () {
+            this.row2++;
+        };
+        this.row3add = function () {
+            this.row3++;
+        };
+        this.col1add = function () {
+            this.col1++;
+        };
+        this.col2add = function () {
+            this.col2++;
+        };
+        this.col3add = function () {
+            this.col3++;
+        };
+        this.diag1add = function () {
+            this.diag1++;
+        };
+        this.diag2add = function () {
+            this.diag2++;
+        };
+
 }
 
 //===============document ready function start==============//
@@ -171,7 +196,7 @@ $(document).ready(function () {
     });
 //============5x5 board Creation============//
     $(board_option2).on('click', function () {
-        grid.push(r1,r2,r3,r4,r5,c1,c2,c3,c4,c5,d1,d2);
+        grid.push(r1, r2, r3, r4, r5, c1, c2, c3, c4, c5, d1, d2);
         $(board_options).hide();
         $(game_container2).show();
         $("body").append(title, reboot, player_1, game_container2, player_2);
@@ -232,150 +257,166 @@ $(document).ready(function () {
 //=================3x3 win condition=====================//
 
 
-    $(row_1).on('click','.box',function(){
+    $(row_1).on('click', '.box', function () {
         if (swap % 2 === 0) {
-            grid[0].push(1);
+            player1.row1_add();
         }
-        else(grid[0].push(-1));
-        check();
+        else{
+            player2,row1_add();
+        }
+        win_condition_check();
     });
 
-    $(row_2).on('click','.box',function(){
+    $(row_2).on('click', '.box', function () {
         if (swap % 2 === 0) {
-            grid[1].push(1);
+            player1.row2_add();
         }
-        else(grid[1].push(-1));
-        check();
+        else{
+            player2,row2_add();
+        }
+        win_condition_check();
     });
 
-    $(row_3).on('click','.box',function(){
+    $(row_3).on('click', '.box', function () {
         if (swap % 2 === 0) {
-            grid[2].push(1);
+            player1.row3_add();
         }
-        else(grid[2].push(-1));
-        check();
+        else{
+            player2,row3_add();
+        }
+        win_condition_check();
     });
 
-    $(document).on('click','.col1', function(){
+    $(document).on('click', '.col1', function () {
         if (swap % 2 === 0) {
-            grid[3].push(1);
+            player1.col1_add();
         }
-        else(grid[3].push(-1));
-        check();
+        else{
+            player2,col1_add();
+        }
+        win_condition_check();
     });
 
-    $(document).on('click','.col2', function(){
+    $(document).on('click', '.col2', function () {
         if (swap % 2 === 0) {
-            grid[4].push(1);
+            player1.col2_add();
         }
-        else(grid[4].push(-1));
-        check();
+        else{
+            player2,col2_add();
+        }
+        win_condition_check();
     });
 
-    $(document).on('click','.col3', function(){
+    $(document).on('click', '.col3', function () {
         if (swap % 2 === 0) {
-            grid[5].push(1);
+            player1.col3_add();
         }
-        else(grid[5].push(-1));
-        check();
+        else{
+            player2,col3_add();
+        }
+        win_condition_check();
     });
 
-    $(document).on('click','.dia1', function(){
+    $(document).on('click', '.dia1', function () {
         if (swap % 2 === 0) {
-            grid[6].push(1);
+            player1.diag1_add();
         }
-        else(grid[6].push(-1));
-        check();
+        else{
+            player2,diag1_add();
+        }
+        win_condition_check();
     });
 
-    $(document).on('click','.dia2', function(){
+    $(document).on('click', '.dia2', function () {
         if (swap % 2 === 0) {
-            grid[7].push(1);
+            player1.diag2_add();
         }
-        else(grid[7].push(-1));
-        check();
+        else{
+            player2,diag2_add();
+        }
+        win_condition_check();
     });
 
 //=========5x5 win condition =============//
 
-    $(b2_row1).on('click','.b2_box',function(){
+    $(b2_row1).on('click', '.b2_box', function () {
         if (swap % 2 === 0) {
             grid[0].push(1);
         }
         else(grid[0].push(-1));
         check();
     });
-    $(b2_row2).on('click','.b2_box',function(){
+    $(b2_row2).on('click', '.b2_box', function () {
         if (swap % 2 === 0) {
             grid[1].push(1);
         }
         else(grid[1].push(-1));
         check();
     });
-    $(b2_row3).on('click','.b2_box',function(){
+    $(b2_row3).on('click', '.b2_box', function () {
         if (swap % 2 === 0) {
             grid[2].push(1);
         }
         else(grid[2].push(-1));
         check();
     });
-    $(b2_row4).on('click','.b2_box',function(){
+    $(b2_row4).on('click', '.b2_box', function () {
         if (swap % 2 === 0) {
             grid[3].push(1);
         }
         else(grid[3].push(-1));
         check();
     });
-    $(b2_row5).on('click','.b2_box',function(){
+    $(b2_row5).on('click', '.b2_box', function () {
         if (swap % 2 === 0) {
             grid[4].push(1);
         }
         else(grid[4].push(-1));
         check();
     });
-    $(document).on('click','.b2_col1', function(){
+    $(document).on('click', '.b2_col1', function () {
         if (swap % 2 === 0) {
             grid[5].push(1);
         }
         else(grid[5].push(-1));
         check();
     });
-    $(document).on('click','.b2_col2', function(){
+    $(document).on('click', '.b2_col2', function () {
         if (swap % 2 === 0) {
             grid[6].push(1);
         }
         else(grid[6].push(-1));
         check();
     });
-    $(document).on('click','.b2_col3', function(){
+    $(document).on('click', '.b2_col3', function () {
         if (swap % 2 === 0) {
             grid[7].push(1);
         }
         else(grid[7].push(-1));
         check();
     });
-    $(document).on('click','.b2_col4', function(){
+    $(document).on('click', '.b2_col4', function () {
         if (swap % 2 === 0) {
             grid[8].push(1);
         }
         else(grid[8].push(-1));
         check();
     });
-    $(document).on('click','.b2_col5', function(){
+    $(document).on('click', '.b2_col5', function () {
         if (swap % 2 === 0) {
             grid[9].push(1);
         }
         else(grid[9].push(-1));
         check();
     });
-    $(document).on('click','.b2_dia1', function(){
+    $(document).on('click', '.b2_dia1', function () {
         if (swap % 2 === 0) {
             grid[10].push(1);
         }
         else(grid[10].push(-1));
         check();
     });
-    $(document).on('click','.b2_dia2', function(){
+    $(document).on('click', '.b2_dia2', function () {
         if (swap % 2 === 0) {
             grid[11].push(1);
         }
@@ -385,7 +426,7 @@ $(document).ready(function () {
 
 //========= Reset ==============//
 
-    $('.reset').click(function() {
+    $('.reset').click(function () {
         $('.box').removeClass('marked');
         $('.b2_box').removeClass('marked');
         boardReset();
@@ -394,12 +435,12 @@ $(document).ready(function () {
 
     kill_bill_mix.play();
 
-    $("#theme_music").on('click', function(){
+    $("#theme_music").on('click', function () {
         if (theme_music === true) {
             theme_music = false;
             kill_bill_mix.pause();
             $("#theme_music").html("Play Music")
-        }else {
+        } else {
             kill_bill_mix.play();
             $("#theme_music").html("Stop Music");
             theme_music = true;
