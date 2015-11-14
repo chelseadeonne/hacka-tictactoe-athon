@@ -102,6 +102,7 @@ var board = {};
 board.number_of_cards = size; //count down for tie.
 board.cards_do_your_thing = function (clickedVariable, playerTurn) {
     console.log('called :', clickedVariable, playerTurn);
+    board.number_of_cards--;
     var cards = {
         row1: ["box_1", "box_2", "box_3"],
         row2: ["box_4", "box_5", "box_6"],
@@ -115,12 +116,12 @@ board.cards_do_your_thing = function (clickedVariable, playerTurn) {
     for(var x in cards){
         console.log(x);
         for (i=0; i < x.length; i++){
-            if (clickedVariable === x[i]){
+            if (clickedVariable === cards[x][i]){
                 console.log('found a match!');
                 //playerTurn.x.text++;
                 //var concatenate = x.text;
-                console.log(x[i]);
-                playerTurn.x++;
+                console.log(cards[x][i]);
+                playerTurn[x]++;
                 win_condition_check();
             }
         }
