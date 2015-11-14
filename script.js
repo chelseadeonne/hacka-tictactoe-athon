@@ -115,7 +115,7 @@ board.cards_do_your_thing = function (clickedVariable, playerTurn) {
     };
     for(var x in cards){
         console.log(x);
-        for (i=0; i < cards[x].length; i++){
+        for (i=0; i < x.length; i++){
             if (clickedVariable === cards[x][i]){
                 console.log('found a match!');
                 //playerTurn.x.text++;
@@ -337,6 +337,7 @@ $(document).ready(function () {
     $(document).on('click', '.b2_box', function () {
         $(this).addClass('marked');
         console.log('hi');
+        var variableFromCardClass = $(this).attr("id");
         if (swap % 2 === 0) {
             //player 1 gets to go
             //var x = $('<img>').attr('src', 'images/samurai_swords.png');
