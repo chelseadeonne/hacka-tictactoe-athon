@@ -115,7 +115,7 @@ board.cards_do_your_thing = function (clickedVariable, playerTurn) {
     };
     for(var x in cards){
         console.log(x);
-        for (i=0; i < x.length; i++){
+        for (i=0; i < cards[x].length; i++){
             if (clickedVariable === cards[x][i]){
                 console.log('found a match!');
                 //playerTurn.x.text++;
@@ -344,6 +344,7 @@ $(document).ready(function () {
             sword.play();
             $(this).addClass("x").addClass("marked").removeClass("black_background").addClass("yellow_background");
             var x = $('<img>').attr('src', 'images/samurai_swords.png');
+            board.cards_do_your_thing(variableFromCardClass, player1);
 
         } else {
             //player 2 gets to go
@@ -351,6 +352,7 @@ $(document).ready(function () {
             var y = $('<img>').attr('src', 'images/meteor_hammer.png');
             //$(this).append(y);
             $(this).addClass("o");
+            board.cards_do_your_thing(variableFromCardClass, player2);
         }
         increment();
     });
