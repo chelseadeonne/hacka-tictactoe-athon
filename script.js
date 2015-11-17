@@ -1,4 +1,4 @@
-var title = $("<div class='title'><h1>Tic - Tac - <span class='black'>Tarantino</span></h1></div>");
+var title = $("<div class='title'><h1>Tic - Tac - Tarantino</h1></div>");
 var grid = [];
 
 var r1 = [];
