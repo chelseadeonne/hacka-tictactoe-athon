@@ -1,4 +1,4 @@
-var title = $("<div class='title'><h1>Tic - Tac - Tarantino</h1></div>");
+var title = $("<div class='title'>Tic - Tac - Tarantino</div>");
 var grid = [];
 
 var r1 = [];
@@ -26,8 +26,8 @@ var theme_music = true;
 //dynamic board creation for 3x3 and 5x5
 var win = $('<h1>');
 var lose = $('<img>').attr('src','images/Blood-Slash.png').addClass('tally');
-var player_1 = $("<div class='player_1'><h2>Kiddo</h2></div>"),
-    player_2 = $("<div class='player_2'><h2>O-Ren Ishii</h2></div>"),
+var player_1 = $("<div class='player_1'></div>"),
+    player_2 = $("<div class='player_2'></div>"),
     game_container1 = $("<div class='game_container1'></div>"),
     row_1 = $("<div class='row row_1'></div>"),
     box_1 = $("<div class='box one col1 dia1'></div>"),
@@ -75,7 +75,7 @@ var player_1 = $("<div class='player_1'><h2>Kiddo</h2></div>"),
     board_options = $("<div class='board_options'></div>"),
     board_option1 = $("<div class='board_option1'><button>3 Rows</button></div>"),
     board_option2 = $("<div class='board_option2'><button>5 Rows</button></div>"),
-    reboot = $("<div class='reboot'><button class='reset'>Reset</button><button id='theme_music'>Stop Music</button></div>");
+    reboot = $("<div class='reboot_and_music'><div class='reboot'><button class='reset'>Reset</button><button id='theme_music'>Stop Music</button></div></div>");
 
 //==============increment to swap between players===============//
 
